@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/actionForDeveloper" android:title="@string/action_for_developer">
+        <menu>
+            <item android:id="@+id/actionDevTools" android:title="@string/action_dev_tools" android:visible="false" android:enabled="false"/>
+            <item android:id="@+id/actionConsole" android:title="@string/action_console"/>
+<!--            <item android:id="@+id/actionConsoleEruda" android:title="@string/action_console_eruda"/>-->
+<!--            <item android:id="@+id/actionConsoleFireBug" android:title="@string/action_console_firebug"/>-->
+            <item android:id="@+id/actionContenteditable" android:title="@string/action_contenteditable" android:checkable="true"/>
+            <item android:id="@+id/actionHighlightBorder" android:title="@string/action_highlight_border" android:checkable="true"/>
+            <item android:id="@+id/actionElementEditor" android:title="@string/action_element_editor" android:checkable="true"/>
+            <item android:id="@+id/actionStyleEditor" android:title="@string/action_style_editor" android:checkable="true" android:visible="false"/>
+            <item android:id="@+id/actionSourcePage" android:title="@string/action_source_page"/>
+            <item android:id="@+id/actionViewSource" android:title="@string/action_viewsource"/>
+            <item android:id="@+id/actionJavaScript" android:title="@string/action_javascript"/>
+            <item android:id="@+id/actionUserAgent" android:title="@string/action_useragent"/>
+        </menu>
+    </item>
+    <item android:id="@+id/actionRequests" android:title="@string/action_requests">
+        <menu>
+            <item android:id="@+id/actionRequestGET" android:title="@string/action_request_get"/>
+            <item android:id="@+id/actionRequestPOST" android:title="@string/action_request_post"/>
+        </menu>
+    </item>
+    <item android:id="@+id/actionDesktopVersion" android:title="@string/action_desktop_version" android:checkable="true"/>
+    <item android:id="@+id/actionFindToPage" android:title="@string/action_find_to_page"/>
+    <item android:id="@+id/actionSettings" android:title="@string/action_settings"/>
+    <item android:id="@+id/actionHistoryM" android:title="@string/action_history"/>
+<!--    <item android:id="@+id/actionFeedback" android:title="@string/action_feedback_and_help"/>-->
+<!--    <item android:id="@+id/actionHelp" android:title="@string/action_help"/>-->
+    <item android:id="@+id/actionDonate" android:title="@string/action_donate"/>
+    <item android:id="@+id/actionExit" android:title="@string/action_exit"/>
+</menu>

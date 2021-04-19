@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mixno.web_debugger">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <application
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+
+        tools:targetApi="m">
+
+        <activity
+            android:name="com.mixno.web_debugger.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:configChanges="orientation|screenSize|locale">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http" android:path="/" tools:ignore="AppLinkUrlError"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http" android:path="/*" tools:ignore="AppLinkUrlError"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https" android:path="/" tools:ignore="AppLinkUrlError"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https" android:path="/*" tools:ignore="AppLinkUrlError"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mixno.web_debugger.MainSearchActivity"
+            android:windowSoftInputMode="stateVisible"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.SettingsActivity"
+            android:label="@string/title_settings"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.FeedbackActivity"
+            android:label="@string/title_feedback"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.HelpActivity"
+            android:label="@string/title_help"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.AboutAppActivity"
+            android:label="@string/title_about_app"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.TabsActivity"
+            android:label="@string/title_tabs"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.HistoryActivity"
+            android:label="@string/title_back_history"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.LocalhostActivity"
+            android:label="@string/title_localhost"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.DevToolsActivity"
+            android:label="@string/action_dev_tools"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.DebugActivity"
+            android:theme="@style/AppThemeDebug"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize|locale"
+            android:windowSoftInputMode="stateHidden"
+            android:launchMode="singleTop"/>
+    </application>
+
+</manifest>

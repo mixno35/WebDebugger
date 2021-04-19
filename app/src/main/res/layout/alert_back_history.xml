@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="280dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/title_back_history"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/alert_title"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listBackHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/buttonClearHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/action_clear_back_history"
+        android:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/colorAccent"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="12sp"
+        android:layout_margin="10dp" />
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#969AEC</color>
+    <color name="colorControlNormal">#FFFFFF</color>
+    <color name="colorControlNormalBar">#969AEC</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="windowBackground">#000000</color>
+    <color name="iconCard">#FFFFFF</color>
+    <color name="iconBottomMenu">#FFFFFF</color>
+    <color name="textUrl">#070707</color>
+    <color name="textUrlBackground">#9EFFFFFF</color>
+    <color name="textNoLog">#A3FFFFFF</color>
+    <color name="cardViewBackground">#34FFFFFF</color>
+    <color name="bottomMenu">#000000</color>
+    <color name="buttonTextColor">#000000</color>
+
+    <color name="alertBackground">#1A1A1A</color>
+    <color name="alertOverlay">#37FFFFFF</color>
+    <color name="alertAccent">#969AEC</color>
+
+    <color name="consoleMessage">#D5FFFFFF</color>
+    <color name="consoleSourceID">#1789F0</color>
+    <color name="consoleLinNumber">#DDFFFFFF</color>
+
+    <color name="alert_title">#FFFFFF</color>
+    <color name="alert_list_title">#FFFFFF</color>
+
+    <color name="help_title_background">#22FFFFFF</color>
+    <color name="help_title">#EBFFFFFF</color>
+    <color name="help_message">#8DFFFFFF</color>
+
+    <color name="about_app_name">#FFFFFF</color>
+    <color name="about_app_work">#8FFFFFFF</color>
+
+    <color name="title_remove">#FFFFFF</color>
+    <color name="message_remove">#7AFFFFFF</color>
+
+    <color name="tint_divider_round">#52FFFFFF</color>
+
+    <color name="ssl_black">#FFFFFF</color>
+    <color name="ssl_gray">#7CFFFFFF</color>
+    <color name="ssl_red">#FF5454</color>
+    <color name="ssl_green">#6CFF73</color>
+    <color name="ssl_host">#E7E7E7</color>
+    <color name="ssl_default">#C9C9C9</color>
+
+    <color name="tabBackgroundCard">#1B1B1B</color>
+
+    <color name="backgroundDevToolsProgress">#A4000000</color>
+    <color name="backgroundDevToolsTabs">#383838</color>
+    <color name="backgroundDevToolsTabSelected">#969AEC</color>
+    <color name="textDevToolsTab">#B3B3B3</color>
+    <color name="textSelectedDevToolsTab">#000000</color>
+</resources>

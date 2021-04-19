@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listConsole"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/textNoLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_logs_console"
+        android:paddingTop="40dp"
+        android:paddingBottom="30dp"
+        android:textSize="14sp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/textNoLog"
+        android:gravity="center"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editSourceJS"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="13sp"
+                    android:padding="14dp"
+                    android:layout_weight="1"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:hint="@string/hint_write_js"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:maxHeight="90dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="12dp"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal|bottom">
+
+                    <ImageView
+                        android:id="@+id/imageConsoleRefresh"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:padding="10dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:tint="?attr/colorControlNormal"
+                        android:src="@drawable/ic_console_refresh"/>
+
+                    <ImageView
+                        android:id="@+id/imageConsoleClear"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:padding="10dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:tint="?attr/colorControlNormal"
+                        android:src="@drawable/ic_console_clear"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical|right">
+
+                <CheckBox
+                    android:id="@+id/checkOpenConsole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="@string/open_console_script_execute"/>
+
+                <Button
+                    android:id="@+id/buttonRunConsole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/run_console"
+                    android:backgroundTint="@color/colorAccent"
+                    app:backgroundTint="@color/colorAccent"
+                    android:stateListAnimator="@null"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="10sp"
+                    android:layout_margin="6dp" />
+
+                <Button
+                    android:id="@+id/buttonCloseConsole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/close_console"
+                    android:backgroundTint="@color/colorAccent"
+                    app:backgroundTint="@color/colorAccent"
+                    android:stateListAnimator="@null"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="10sp"
+                    android:layout_margin="6dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

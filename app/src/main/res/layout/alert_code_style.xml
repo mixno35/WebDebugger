@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/title_code_style"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="21sp"
+        android:id="@+id/menucodeTextView1"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@id/menucodeTextView1"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_height="55dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="right|center_vertical">
+
+            <Button
+                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:text="@string/action_download"
+                android:id="@+id/btnDownload"
+                android:stateListAnimator="@null"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:text="@string/action_save"
+                android:id="@+id/btnSave"
+                android:stateListAnimator="@null"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <EditText
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:ems="10"
+                android:textSize="13sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/editCode"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:src="@drawable/ic_alert_close"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
+        android:padding="10dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:tint="@color/colorControlNormal"
+        android:id="@+id/ivClose"/>
+
+    <LinearLayout
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="50dp"
+        android:gravity="right|center_vertical">
+
+        <ImageView
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_alert_undo"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorControlNormal"
+            android:id="@+id/ivUndo"/>
+
+        <ImageView
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_alert_redo"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorControlNormal"
+            android:id="@+id/ivRedo"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+

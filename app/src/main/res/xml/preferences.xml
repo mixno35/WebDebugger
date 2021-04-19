@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:key="categoryApp" android:title="@string/preference_app">
+        <ListPreference
+            android:defaultValue="0"
+            android:key="keyTheme"
+            android:title="@string/preference_theme"
+            android:summary="%s"
+            android:entries="@array/theme_str"
+            android:entryValues="@array/theme_val"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="keyDebugMode"
+            android:title="@string/preference_debug_mode" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="keySaveSession"
+            android:title="@string/preference_save_session"
+            android:summary="@string/preference_summary_save_session"/>
+        <ListPreference
+            android:defaultValue="0"
+            android:key="keySearchEngine"
+            android:title="@string/preference_search_engine"
+            android:summary="%s"
+            android:entries="@array/search_engine_str"
+            android:entryValues="@array/search_engine_val"/>
+        <ListPreference
+            android:defaultValue="0"
+            android:key="keyOptionSearch"
+            android:title="@string/preference_search_request_processing_option"
+            android:summary="%s"
+            android:entries="@array/option_search_str"
+            android:entryValues="@array/option_search_val"/>
+        <ListPreference
+            android:defaultValue="3"
+            android:key="keyLongPressHome"
+            android:title="@string/preference_theme_long_press_home"
+            android:summary="%s"
+            android:entries="@array/long_press_home_str"
+            android:entryValues="@array/long_press_home_val"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preference_web">
+        <ListPreference
+            android:defaultValue="0"
+            android:key="keyThemeWebView"
+            android:title="@string/preference_theme_webview"
+            android:summary="%s"
+            android:entries="@array/theme_str"
+            android:entryValues="@array/theme_val"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="keyNewVersionPC"
+            android:title="@string/preference_pc_version"
+            android:summary="@string/preference_summary_pc_version"/>
+<!--        <SwitchPreference-->
+<!--            android:defaultValue="true"-->
+<!--            android:key="keyFileUrls"-->
+<!--            android:title="@string/preference_access_from_file_urls" />-->
+<!--        <SwitchPreference-->
+<!--            android:defaultValue="false"-->
+<!--            android:key="keyThemeColor"-->
+<!--            android:title="@string/preference_theme_color"-->
+<!--            android:summary="@string/preference_summary_theme_color"/>-->
+<!--        <PreferenceScreen-->
+<!--            android:key="keyLocalhost"-->
+<!--            android:title="@string/preference_localhost"/>-->
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preference_view">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="keyViewBottomMenuBar"
+            android:title="@string/preference_view_bottom_bar"/>
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="keyLinkText"
+            android:title="@string/preference_link_text"/>
+<!--        <SwitchPreference-->
+<!--            android:defaultValue="false"-->
+<!--            android:key="keyRoundedDisplay"-->
+<!--            android:title="@string/preference_rounded_display"/>-->
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preference_other">
+        <PreferenceScreen
+            android:key="keyGrantPermissions"
+            android:title="@string/preference_grant_permissions"/>
+<!--        <PreferenceScreen-->
+<!--            android:key="keyHistory"-->
+<!--            android:title="@string/action_history"/>-->
+        <PreferenceScreen
+            android:key="keyFeedback"
+            android:title="@string/action_feedback_and_help"/>
+        <PreferenceScreen
+            android:key="keyAboutApp"
+            android:title="@string/preference_app_about"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="15dp"
+            android:text="https://..."
+            android:textColor="@color/ssl_default"
+            android:textSize="17sp"
+            android:textStyle="normal"
+            android:maxLines="2"/>
+
+        <TextView
+            android:id="@+id/title_connect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="15dp"
+            android:text="https://..."
+            android:textColor="@color/ssl_black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:maxLines="2"/>
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="15dp"
+            android:text="https://..."
+            android:textColor="@color/ssl_gray"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:maxLines="4"/>
+
+
+
+        <!-- CERTIFICATE -->
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/itemLinCertificate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textColor="@color/title_remove"
+                    android:text="@string/action_certificate" />
+
+                <ImageView
+                    android:id="@+id/imageCertificate"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:alpha="0.5"
+                    android:src="@drawable/ic_arrow_wh_black"
+                    android:tint="@color/title_remove" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contentLinCertificate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textMessageCertificate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textIsSelectable="true"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/title_remove"
+                    android:text="TextView" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <!-- WHOIS -->
+
+        <View
+            android:id="@+id/divider9"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/itemLinWhois"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textColor="@color/title_remove"
+                    android:text="@string/action_whois_domain" />
+
+                <ImageView
+                    android:id="@+id/imageWhois"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:alpha="0.5"
+                    android:src="@drawable/ic_arrow_wh_black"
+                    android:tint="@color/title_remove" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contentLinWhois"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textMessageWhois"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/title_remove"
+                    android:text="TextView" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

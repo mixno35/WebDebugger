@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tabs_toolbar_elevation">0dp</dimen>
+
+    <dimen name="popupHorizontalOffset">-6dp</dimen>
+    <dimen name="popupVerticalOffset">-49dp</dimen>
+
+    <dimen name="cornerSearch">10dp</dimen>
+</resources>

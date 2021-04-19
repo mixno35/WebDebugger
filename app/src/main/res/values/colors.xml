@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#F3F3F3</color>
+    <color name="colorAccent">#1789F0</color>
+    <color name="colorControlNormal">#000000</color>
+    <color name="colorControlNormalBar">#1789F0</color>
+    <color name="navigationBarColor">#F3F3F3</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="iconCard">#070707</color>
+    <color name="iconBottomMenu">#070707</color>
+    <color name="textUrl">#474747</color>
+    <color name="textUrlBackground">#DFDFDF</color>
+    <color name="textNoLog">#A7A7A7</color>
+    <color name="cardViewBackground">#14000000</color>
+    <color name="bottomMenu">#FFFFFF</color>
+    <color name="buttonTextColor">#FFFFFF</color>
+
+    <color name="alertBackground">#FFFFFF</color>
+    <color name="alertOverlay">#37000000</color>
+    <color name="alertAccent">#1789F0</color>
+
+    <color name="consoleMessage">#949494</color>
+    <color name="consoleSourceID">#1789F0</color>
+    <color name="consoleLinNumber">#0C0C0C</color>
+    <color name="consoleError">#ff0000</color>
+    <color name="consoleErrorBack">#31FF0000</color>
+    <color name="consoleWarning">#F59914</color>
+    <color name="consoleWarningBack">#31FFF000</color>
+
+    <color name="alert_title">#000000</color>
+    <color name="alert_list_title">#000000</color>
+
+    <color name="help_title_background">#E4E4E4</color>
+    <color name="help_title">#353535</color>
+    <color name="help_message">#818181</color>
+
+    <color name="about_app_name">#222222</color>
+    <color name="about_app_work">#888888</color>
+
+    <color name="title_remove">#000000</color>
+    <color name="message_remove">#7A000000</color>
+
+    <color name="tint_divider_round">#C7C7C7</color>
+
+    <color name="ssl_black">#000000</color>
+    <color name="ssl_gray">#929292</color>
+    <color name="ssl_red">#BB0000</color>
+    <color name="ssl_green">#008D07</color>
+    <color name="ssl_host">#161616</color>
+    <color name="ssl_default">#888888</color>
+
+    <color name="tabBackgroundCard">#FFFFFF</color>
+
+    <color name="backgroundDevToolsProgress">#CDFFFFFF</color>
+    <color name="backgroundDevToolsTabs">#F1F1F1</color>
+    <color name="backgroundDevToolsTabSelected">#1789F0</color>
+    <color name="textDevToolsTab">#ACACAC</color>
+    <color name="textSelectedDevToolsTab">#FFFFFF</color>
+</resources>

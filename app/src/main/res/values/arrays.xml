@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="search_engine_val">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="search_engine_str">
+        <item>@string/search_engine_google</item>
+        <item>@string/search_engine_yandex</item>
+        <item>@string/search_engine_bing</item>
+        <item>@string/search_engine_yahoo</item>
+        <item>@string/search_engine_duckduckgo</item>
+    </string-array>
+
+    <string-array name="theme_val">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="theme_str">
+        <item>@string/theme_system</item>
+        <item>@string/theme_light</item>
+        <item>@string/theme_night</item>
+    </string-array>
+
+    <string-array name="option_search_val">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="option_search_str">
+        <item>@string/action_option_search_new</item>
+        <item>@string/action_option_search_old</item>
+    </string-array>
+
+    <string-array name="long_press_home_val">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="long_press_home_str">
+        <item>@string/action_console</item>
+        <item>@string/action_source_page</item>
+        <item>@string/action_viewsource</item>
+        <item>@string/action_javascript</item>
+        <item>@string/action_useragent</item>
+    </string-array>
+
+</resources>
