@@ -37,3 +37,7 @@
     - **Default** *- Изменяет стандартный UserAgent на выбранный из списка, меняет только при отключенной "ПК ВЕРСИИ"*
 
 ____
+
+
+Приложение для Android
+https://play.google.com/store/apps/details?id=com.mixno.web_debugger
