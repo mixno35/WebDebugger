@@ -15,6 +15,8 @@ import androidx.appcompat.app.AlertDialog;
 import com.mixno.web_debugger.R;
 import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.widget.WebEI;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.io.DataInputStream;
 import java.io.OutputStreamWriter;
@@ -69,6 +71,8 @@ public class SSL {
         View inflate = ((Activity)context).getLayoutInflater().inflate(R.layout.alert_ssl_check, null);
         dialog.setView(inflate);
 
+        final ImageView favicon = inflate.findViewById(R.id.favicon);
+
         final TextView title_d = inflate.findViewById(R.id.title);
         final TextView title_c = inflate.findViewById(R.id.title_connect);
         final TextView message_d = inflate.findViewById(R.id.message);
@@ -84,6 +88,36 @@ public class SSL {
         final LinearLayout contentLinWhois = inflate.findViewById(R.id.contentLinWhois);
         final ImageView imageWhois = inflate.findViewById(R.id.imageWhois);
         final TextView textMessageWhois = inflate.findViewById(R.id.textMessageWhois);
+
+        try {
+            Picasso.with(context)
+                    .load("https://www.google.com/s2/favicons?sz=64&domain_url="+host)
+                    .placeholder(R.drawable.ic_console_refresh)
+                    .error(R.drawable.ic_console_warning)
+                    .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                    .into(favicon);
+        } catch (Exception e) {}
+
+        title_d.setMaxLines(2);
+
+        title_d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (title_d.getMaxLines() <= 2) {
+                    title_d.setMaxLines(25);
+                } else {
+                    title_d.setMaxLines(2);
+                }
+            }
+        });
+
+        title_d.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Data.clipboard(context, url, true);
+                return true;
+            }
+        });
 
 
         // Certificate

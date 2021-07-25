@@ -37,7 +37,7 @@ public class AddonsDialog {
     private ProgressBar progressBar;
 
     private ImageView ivClose;
-    private Button buttonWhat;
+    private Button buttonCreate, buttonStore, buttonImport;
 
     private RecyclerView listAddons;
     private RecyclerView.Adapter listAdapter;
@@ -53,7 +53,10 @@ public class AddonsDialog {
         progressBar = inflate.findViewById(R.id.progressBar);
         listAddons = inflate.findViewById(R.id.recyclerView);
         ivClose = inflate.findViewById(R.id.ivClose);
-        buttonWhat = inflate.findViewById(R.id.buttonWhat);
+        buttonCreate = inflate.findViewById(R.id.buttonCreate);
+        buttonImport = inflate.findViewById(R.id.buttonImport);
+        buttonStore = inflate.findViewById(R.id.buttonStore);
+
 
         if (dialog != null) {
             ivClose.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,7 @@ public class AddonsDialog {
                 }
             });
 
-            buttonWhat.setOnClickListener(new View.OnClickListener() {
+            buttonCreate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 //                    if (Data.isInstallPackage(context, "com.doctorsteep.ide.web")) {

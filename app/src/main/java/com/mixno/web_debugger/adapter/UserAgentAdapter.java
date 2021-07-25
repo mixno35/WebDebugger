@@ -60,7 +60,23 @@ public class UserAgentAdapter extends RecyclerView.Adapter<UserAgentAdapter.User
             }
         });
 
-        DataAnim.setFadeAnimation(holder.itemView);
+        holder.check.post(new Runnable() {
+            @Override
+            public void run() {
+                holder.check.setVisibility(View.GONE);
+            }
+        });
+
+        if (MainActivity.mWeb.getSettings().getUserAgentString().equals(model.getUserAgent())) {
+            holder.check.post(new Runnable() {
+                @Override
+                public void run() {
+                    holder.check.setVisibility(View.VISIBLE);
+                }
+            });
+        }
+
+//        DataAnim.setFadeAnimation(holder.itemView);
     }
 
     @Override
@@ -70,12 +86,13 @@ public class UserAgentAdapter extends RecyclerView.Adapter<UserAgentAdapter.User
 
     public static class UserAgentHolder extends RecyclerView.ViewHolder {
         protected TextView name;
-        protected ImageView icon;
+        protected ImageView icon, check;
 
         public UserAgentHolder(View item) {
             super(item);
             name = item.findViewById(R.id.name);
             icon = item.findViewById(R.id.image);
+            check = item.findViewById(R.id.check);
         }
     }
 }

@@ -6,18 +6,23 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import com.mixno.web_debugger.R;
 import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.model.BackHistoryModel;
 import com.mixno.web_debugger.widget.WebEI;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
 import static com.mixno.web_debugger.app.Data.PATH_HISTORY;
 
@@ -46,6 +51,27 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
 
         final String url = model.getUrl();
         final String name = model.getName();
+        String host = "";
+        try {
+            host = new URL(model.getUrl()).getHost();
+        } catch (Exception e) {
+            host = "";
+        }
+
+        final String finalHost = host;
+
+        holder.iconBitmap.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Picasso.with(context)
+                            .load("https://www.google.com/s2/favicons?sz=64&domain_url="+ finalHost)
+                            .placeholder(R.drawable.ic_favicon_default)
+                            .error(R.drawable.ic_favicon_default)
+                            .into(holder.iconBitmap);
+                } catch (Exception e) {}
+            }
+        });
 
         holder.textTitle.post(new Runnable() {
             @Override
@@ -98,12 +124,12 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
 
     public static class BackHistoryHolder extends RecyclerView.ViewHolder {
         protected TextView textTitle;
-//        protected ImageView iconBitmap;
+        protected ImageView iconBitmap;
 
         public BackHistoryHolder(View item) {
             super(item);
             textTitle = item.findViewById(R.id.textTitle);
-//            iconBitmap = item.findViewById(R.id.iconBitmap);
+            iconBitmap = item.findViewById(R.id.iconBitmap);
         }
     }
 

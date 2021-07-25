@@ -27,6 +27,7 @@
     <color name="consoleErrorBack">#31FF0000</color>
     <color name="consoleWarning">#F59914</color>
     <color name="consoleWarningBack">#31FFF000</color>
+    <color name="consoleSuccess">#4CAF50</color>
 
     <color name="alert_title">#000000</color>
     <color name="alert_list_title">#000000</color>

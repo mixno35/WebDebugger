@@ -42,6 +42,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="long_press_home_str">
         <item>@string/action_console</item>
@@ -49,6 +50,7 @@
         <item>@string/action_viewsource</item>
         <item>@string/action_javascript</item>
         <item>@string/action_useragent</item>
+        <item>@string/action_cookie_manager</item>
     </string-array>
 
 </resources>

@@ -5,6 +5,8 @@
     <string name="hint_search">Введите URL или запрос</string>
     <string name="hint_write_js">Введите JavaScript</string>
     <string name="hint_find_to_page">Введите текст</string>
+    <string name="hint_cookie_name">Название</string>
+    <string name="hint_cookie_value">Значение</string>
 
     <string name="loading_page">Загрузка</string>
     <string name="belarus">MIKHNO Dev. 2020-2021</string>
@@ -65,11 +67,14 @@
     <string name="action_send_app_debug">Отправить debug</string>
     <string name="action_javascript">JavaScript</string>
     <string name="action_create_javascript">Создать</string>
+    <string name="action_store_javascript">Магазин</string>
+    <string name="action_import_javascript">Импортировать</string>
     <string name="action_dev_tools">DevTools(бета)</string>
     <string name="action_rate_app">Оценить приложение</string>
     <string name="action_useragent">UserAgent(бета)</string>
     <string name="action_donate">Пожертвовать деньги</string>
     <string name="action_source_code">Исходный код | GitHub</string>
+    <string name="action_cookie_manager">Cookie Менеджер</string>
 
     <string name="action_menu_open">Открыть</string>
     <string name="action_menu_copy">Копировать</string>
@@ -119,6 +124,7 @@
     <string name="message_information_dev">Привет! Это приложение абсолютно бесплатное и не содержит рекламы - всё для Вас! Но Вы всегда можете пожертвовать на развитие проекта или оставить хороший отзыв в Магазине Приложений. Спасибо, что скачали приложение!</string>
     <string name="message_js_create">Создайте свой сторонний JS код, для быстрого его запуска на любом сайте!</string>
     <string name="message_donate">Купите кофе разработчику, и я буду дальше бесплатно поддерживать этот проект для Вас и радовать новыми обновлениями!</string>
+    <string name="message_cookie_remove">Вы действительно хотите удалить этот cookie \"%1s\"?</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Яндекс</string>
@@ -167,6 +173,7 @@
     <string name="title_information">Информация</string>
     <string name="title_donate">Пожертвование</string>
     <string name="title_say_thanks">Сказать спасибо</string>
+    <string name="title_cookie_remove">Удалить cookie</string>
 
     <string name="ssl_error">Ошибка SSL Сертификата.</string>
     <string name="ssl_error_untrusted">Подозрительный центр сертификации.</string>
@@ -242,11 +249,14 @@
     <string name="preference_theme_color">Цветовая схема</string>
     <string name="preference_search_request_processing_option">Вариант обработки запроса поиска</string>
     <string name="preference_pc_version">Новая обработка ПК версии</string>
-    <string name="preference_theme_long_press_home">Долго удержание кнопки \"Главная страница\" открывает</string>
+    <string name="preference_long_press_home">Долгое удержание кнопки \"Главная страница\"</string>
+    <string name="preference_save_history">Сохранить историю</string>
 
-    <string name="preference_summary_save_session">Сохранить последнюю сессию</string>
+    <string name="preference_summary_save_session">Сохраняет последнюю открытую страницу</string>
     <string name="preference_summary_theme_color">Адаптировать цвета приложения, под цвет сайт</string>
     <string name="preference_summary_pc_version">Новая обработка ПК версии, позволит заменять адрес сайта и искать мобильные упоминания</string>
+    <string name="preference_summary_long_press_home">Долгое удержание кнопки \"Главная страница\" открывает \"%s\"</string>
+    <string name="preference_summary_save_history">Сохраняет историю посещений страниц</string>
 
     <string name="certificate_valid">Действителен</string>
     <string name="certificate_not_valid">Не действителен</string>

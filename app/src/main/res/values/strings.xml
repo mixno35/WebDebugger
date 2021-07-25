@@ -5,6 +5,8 @@
     <string name="hint_search">Enter url or request</string>
     <string name="hint_write_js">Write javascript source</string>
     <string name="hint_find_to_page">Enter text</string>
+    <string name="hint_cookie_name">Name</string>
+    <string name="hint_cookie_value">Value</string>
 
     <string name="loading_page">Loading</string>
     <string name="belarus">MIKHNO Dev. 2020-2021</string>
@@ -65,11 +67,14 @@
     <string name="action_send_app_debug">Send debug</string>
     <string name="action_javascript">JavaScript</string>
     <string name="action_create_javascript">Create</string>
+    <string name="action_store_javascript">Store</string>
+    <string name="action_import_javascript">Import</string>
     <string name="action_dev_tools">DevTools(beta)</string>
     <string name="action_rate_app">Rate app</string>
     <string name="action_useragent">UserAgent(beta)</string>
     <string name="action_donate">Donate</string>
     <string name="action_source_code">Source code | GitHub</string>
+    <string name="action_cookie_manager">Cookie Manager</string>
 
     <string name="action_menu_open">Open</string>
     <string name="action_menu_copy">Copy</string>
@@ -119,6 +124,7 @@
     <string name="message_information_dev">Hey! This application is absolutely free and does not contain ads, everything is for you! But you donating for new updating the project or leave good feedback in the App Store. Thank you for downloading the app!</string>
     <string name="message_js_create">Make JS source code, for fast run code!</string>
     <string name="message_donate">By coffee, developer, and I will continue to support this project for you and delight you with new updates!</string>
+    <string name="message_cookie_remove">You are remove cookie \"%1s\"?</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Yandex</string>
@@ -167,6 +173,7 @@
     <string name="title_information">Information</string>
     <string name="title_donate">Donate</string>
     <string name="title_say_thanks">Say thanks</string>
+    <string name="title_cookie_remove">Remove cookie</string>
 
     <string name="ssl_error">SSl Certificate error.</string>
     <string name="ssl_error_untrusted">The certificate authority is not trusted.</string>
@@ -242,11 +249,14 @@
     <string name="preference_theme_color">Theme color</string>
     <string name="preference_search_request_processing_option">Search request processing option</string>
     <string name="preference_pc_version">New PC version option</string>
-    <string name="preference_theme_long_press_home">Long holding the \"Home page\" button opens</string>
+    <string name="preference_long_press_home">Long holding the \"Home page\" button</string>
+    <string name="preference_save_history">Save history</string>
 
     <string name="preference_summary_save_session">Remember last open link (excluding tabs)</string>
     <string name="preference_summary_theme_color">Adapt the colors of the application to match the color of the site</string>
     <string name="preference_summary_pc_version">New processing of the PC version, will allow you to replace the site address and search for mobile mentions</string>
+    <string name="preference_summary_long_press_home">Long holding the \"Home page\" button opens \"%s\"</string>
+    <string name="preference_summary_save_history">Save history visits</string>
 
     <string name="certificate_valid">Valid</string>
     <string name="certificate_not_valid">Not valid</string>

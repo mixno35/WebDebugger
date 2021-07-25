@@ -67,11 +67,13 @@ import com.mixno.web_debugger.code.request.POST;
 import com.mixno.web_debugger.dialog.AddonsDialog;
 import com.mixno.web_debugger.dialog.CodeDialog;
 import com.mixno.web_debugger.dialog.CodeStyleDialog;
+import com.mixno.web_debugger.dialog.CookieManagerDialog;
 import com.mixno.web_debugger.dialog.RateAppDialog;
 import com.mixno.web_debugger.dialog.UserAgentDialog;
 import com.mixno.web_debugger.menu.ImageMenu;
 import com.mixno.web_debugger.model.BackHistoryModel;
 import com.mixno.web_debugger.model.ConsoleModel;
+import com.mixno.web_debugger.web.JavaScriptInterface;
 import com.mixno.web_debugger.web.SSL;
 import com.mixno.web_debugger.web.WebEIConsole;
 import com.mixno.web_debugger.widget.WebEI;
@@ -271,6 +273,28 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        //cookieManager
+        class Class8 implements Runnable {
+            private int id;
+            private String name;
+            private String value;
+            private String cookie;
+
+            Class8(int id, String name, String value, String cookie) {
+                this.id = id;
+                this.name = name;
+                this.value = value;
+                this.cookie = cookie;
+            }
+            public WebJavaScriptInterface access(Class8 cn) {
+                return null;
+            }
+            @Override
+            public void run() {
+
+            }
+        }
+
 
 
         @JavascriptInterface
@@ -307,6 +331,10 @@ public class MainActivity extends AppCompatActivity {
         @SuppressWarnings("unused")
         public void processCSS(String style) {
             mWeb.post(new Class7(style));
+        }
+        @JavascriptInterface
+        public void cookieManagerApp(int id, String name, String value, String cookie) {
+            mWeb.post(new Class8(id, name, value, cookie));
         }
     }
 
@@ -450,8 +478,12 @@ public class MainActivity extends AppCompatActivity {
 //                if (item.getItemId() == R.id.actionHelp) {
 //                    startActivity(new Intent(MainActivity.this, HelpActivity.class));
 //                }
-                if (item.getItemId() == R.id.actionDonate) {
-                    startActivity(new Intent(MainActivity.this, AboutAppActivity.class));
+//                if (item.getItemId() == R.id.actionDonate) {
+//                    startActivity(new Intent(MainActivity.this, AboutAppActivity.class));
+//                }
+                if (item.getItemId() == R.id.actionCookieManager) {
+                    mWeb.runJS(JSManager.COOKIES_MANAGER);
+                    new CookieManagerDialog(MainActivity.this, mWeb);
                 }
                 if (item.getItemId() == R.id.actionExit) {
                     finish();
@@ -485,11 +517,17 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(false);
         }
         if (mWeb != null) {
-            setSessionSaved();
+            try {
+                final String urlOpened = getIntent().getData().toString();
+                mWeb.loadUrl(urlOpened);
+            } catch (Exception e) {
+                setSessionSaved();
+            }
 
             mWeb.setWebViewClient(new WebClient());
             mWeb.setWebChromeClient(new WebChrome());
             mWeb.addJavascriptInterface(new WebJavaScriptInterface(), "$$");
+            mWeb.addJavascriptInterface(new JavaScriptInterface(this), "Android");
 
             registerForContextMenu(mWeb);
 
@@ -692,6 +730,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case "4": // UserAgent
                         new UserAgentDialog(MainActivity.this, mWeb);
+                        break;
+                    case "5": // Cookie Manager
+                        mWeb.runJS(JSManager.COOKIES_MANAGER);
+                        new CookieManagerDialog(MainActivity.this, mWeb);
                         break;
                 }
                 return true;
@@ -1094,7 +1136,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // backHistoryList.add(new BackHistoryModel(mWeb.getTitle(), mWeb.getUrl(), mWeb.getFavicon(), String.valueOf(backHistoryList.size() + 1)));
-                        HistoryManager.addHistory(MainActivity.this, mWeb.getUrl());
+                        if (shared.getBoolean("keySaveHistory", true) == true) {
+                            HistoryManager.addHistory(MainActivity.this, mWeb.getUrl());
+                        }
                         }
                 }, 2000);
             }

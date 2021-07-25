@@ -281,8 +281,24 @@ public class JSManager {
             "\t\t}\n" +
             "\t}\n" +
             "})();";
+
+    public static String COOKIES_MANAGER = "(function () {\n" +
+            "var theCookies = document.cookie.split(';');\n" +
+            "var aString = '';\n" +
+            "for (var i = 1 ; i <= theCookies.length; i++) {\n" +
+            "    var cookieSeg = theCookies[i].trim();\n" +
+            "    var firstEq = cookieSeg.indexOf(\"=\");\n" +
+            "\n" +
+            "    var name = cookieSeg.substr(0,firstEq);\n" +
+            "    var value = cookieSeg.substr(firstEq+1);\n" +
+            "\n" +
+            "    console.log(i + ' ' + name + ' = ' + value);\n" +
+            "    window.Android.cookieManagerApp(i, name, value, '');\n" +
+            "}" +
+            "})();";
+
     public static String SOURCE_CODE_ELEMENT_EI = "window.touchblock=!window.touchblock;setTimeout(function(){$$.blocktoggle(window.touchblock)}, 100);";
-    public static String SOURCE_PAGE_EI = "window.$$.processHTML(document.documentElement.outerHTML);";
+    public static String SOURCE_PAGE_EI = "window.Android.processHTML(document.documentElement.outerHTML);";
     public static String LOG1_EI = "function injek(){window.hasovrde=1;var e=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(ee,nn,aa){this.addEventListener('load',function(){$$.log(this.responseText, nn, JSON.stringify(arguments))}),e.apply(this,arguments)}};if(window.hasovrde!=1){injek();}";
     public static String LOG2_EI = "function injek2(){window.touchblock=0,window.dummy1=1,document.addEventListener('click',function(n){if(1==window.touchblock){n.preventDefault();n.stopPropagation();var t=document.elementFromPoint(n.clientX,n.clientY);window.ganti=function(n){t.outerHTML=n},window.gantiparent=function(n){t.parentElement.outerHTML=n},$$.print(t.parentElement.outerHTML, t.outerHTML)}},!0)}1!=window.dummy1&&injek2();";
     public static String LOG3_EI = "function injek3(){window.hasdir=1;window.dir=function(n){var r=[];for(var t in n)'function'==typeof n[t]&&r.push(t);return r}};if(window.hasdir!=1){injek3();}";

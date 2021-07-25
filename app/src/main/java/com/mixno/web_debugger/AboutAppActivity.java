@@ -103,7 +103,7 @@ public class AboutAppActivity extends AppCompatActivity {
         list.add(new AboutAppModel("WebMoney - WMZ", "Z178194978131", null, true, AboutAppModel.TYPE_COPY));
         list.add(new AboutAppModel("Payeer", "P1048066896", null, true, AboutAppModel.TYPE_COPY));
         list.add(new AboutAppModel("Bitcoin", "3BchmRqDfSxXH7rXaMdUoEkt87UsFTPKc9", null, true, AboutAppModel.TYPE_COPY));
-        list.add(new AboutAppModel(getString(R.string.title_say_thanks), "Telegram", "https://t.me/by_sanya", true, AboutAppModel.TYPE_LINK));
+        list.add(new AboutAppModel(getString(R.string.title_say_thanks), "Telegram", "https://t.me/mixno35", true, AboutAppModel.TYPE_LINK));
 
         new Handler().postDelayed(new Runnable() {
             @Override
