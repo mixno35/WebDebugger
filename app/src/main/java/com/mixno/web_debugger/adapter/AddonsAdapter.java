@@ -19,6 +19,7 @@ import java.util.List;
 import com.mixno.web_debugger.MainActivity;
 import com.mixno.web_debugger.R;
 import com.mixno.web_debugger.app.Data;
+import com.mixno.web_debugger.app.DataAnim;
 import com.mixno.web_debugger.dialog.AddonsDialog;
 import com.mixno.web_debugger.model.AddonsModel;
 import com.mixno.web_debugger.widget.WebEI;
@@ -137,15 +138,32 @@ public class AddonsAdapter extends RecyclerView.Adapter<AddonsAdapter.AddonsHold
             }
         });
 
+        if (!model.isRunning()) {
+            holder.button.post(new Runnable() {
+                @Override
+                public void run() {
+                    holder.button.setEnabled(false);
+                    holder.button.setClickable(false);
+                    holder.button.setVisibility(View.GONE);
+                }
+            });
+        }
+
         holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Data.deleteDF(new File(model.getPath()));
-                try {
-                    AddonsDialog.list.remove(position);
-                    notifyItemRemoved(position);
-                    notifyItemRangeChanged(position, AddonsDialog.list.size());
-                } catch (Exception e) {}
+                DataAnim.setAnimationDelete(context, holder.itemView);
+                holder.itemView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            list.remove(position);
+                            notifyItemRemoved(position);
+                            notifyDataSetChanged();
+                        } catch (Exception e) {}
+                    }
+                }, DataAnim.DURATION_ANIM);
             }
         });
 

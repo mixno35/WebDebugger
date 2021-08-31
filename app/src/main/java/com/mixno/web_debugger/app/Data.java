@@ -1,5 +1,6 @@
 package com.mixno.web_debugger.app;
 
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -49,6 +51,8 @@ public class Data {
 
     private static String ALLOWED_CHARACTERS = "0123456789qwertyuiopasdfghjklzxcvbnm";
     private static String RESULT_RANDOM = "";
+
+    public static String URL_STORE_ADDONS_FILE = "https://elementinspector.000webhostapp.com/store.php";
 
     public static String PATH_HOME = Environment.getExternalStorageDirectory().getPath() + File.separator + ".wd";
     public static String PATH_HISTORY = Environment.getExternalStorageDirectory().getPath() + File.separator + ".wd" + File.separator + ".history";
@@ -280,6 +284,11 @@ public class Data {
         List<String> valid = new ArrayList<>(Arrays.asList("com.android.vending", "com.google.android.feedback"));
         final String installer = context.getPackageManager().getInstallerPackageName(context.getPackageName());
         return installer != null && valid.contains(installer);
+    }
+    @SuppressLint("MissingPermission")
+    public static boolean isNetworkConnected(Context context) {
+        ConnectivityManager connect = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connect.getActiveNetworkInfo() != null;
     }
 
     public static String dateFormat(Date d) {

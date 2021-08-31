@@ -42,7 +42,7 @@ public class WebEI extends WebView {
     public String URL_SEARCH_BAIDU = "https://baidu.com/from=884b/s?word=%20";
 
     public String URL_HOME_YAHOO = "https://search.yahoo.com";
-    public String URL_SEARCH_YAHOO = "https://search.yahoo.com/search&p=%20";
+    public String URL_SEARCH_YAHOO = "https://search.yahoo.com/search?p=%20";
 
     public String URL_HOME_SHENMA = "https://m.sm.cn";
     public String URL_SEARCH_SHENMA = "https://m.sm.cn/s?q=%20";
@@ -351,7 +351,7 @@ public class WebEI extends WebView {
             case "4":
                 result = URL_HOME_DUCKDUCKGO;
                 break;
-            case "5":
+            case "99":
                 if (shared.getString("keySearchEngineOtherHome", URL_HOME_GOOGLE).trim().equals("")) {
                     result = URL_HOME_GOOGLE;
                 } else {
@@ -379,7 +379,7 @@ public class WebEI extends WebView {
             case "4":
                 result = URL_SEARCH_DUCKDUCKGO;
                 break;
-            case "5":
+            case "99":
                 if (shared.getString("keySearchEngineOtherSearch", URL_SEARCH_GOOGLE).trim().equals("")) {
                     result = URL_SEARCH_GOOGLE;
                 } else {

@@ -164,6 +164,7 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
                             @Override
                             public void run() {
                                 list.remove(position);
+                                notifyItemRemoved(position);
                                 notifyDataSetChanged();
                             }
                         }, DataAnim.DURATION_ANIM);

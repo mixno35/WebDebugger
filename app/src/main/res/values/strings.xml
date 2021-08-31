@@ -83,6 +83,8 @@
     <string name="action_cookie_new">New cookie</string>
     <string name="action_clear_data">Clear data</string>
     <string name="action_add_search_engine_other">Save</string>
+    <string name="action_javascript_store_online">Online</string>
+    <string name="action_javascript_store_installed">Installed</string>
 
     <string name="action_menu_open">Open</string>
     <string name="action_menu_copy">Copy</string>
@@ -196,6 +198,7 @@
     <string name="title_clear_data_cookies">Clear cookies</string>
     <string name="title_clear_data_session">Clear session</string>
     <string name="title_clear_data_history">Clear history</string>
+    <string name="title_search_engine">Search engine</string>
     <string name="title_search_engine_other">Search engine other</string>
 
     <string name="ssl_error">SSl Certificate error.</string>
@@ -216,6 +219,7 @@
     <string name="toast_unable_verify_purchases">Unable to verify purchases. You can get your money back.</string>
     <string name="toast_long_press_for_hidden">Hold to hide forever</string>
     <string name="toast_search_engine_other_success">Ready!</string>
+    <string name="toast_no_connect_internet">No connect internet!</string>
 
     <string name="no_logs_console">No log\'s</string>
     <string name="close_console">Close console</string>

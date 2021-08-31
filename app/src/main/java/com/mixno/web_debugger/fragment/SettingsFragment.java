@@ -50,10 +50,6 @@ public class SettingsFragment extends PreferenceFragment {
 
 //        keyRoundedDisplay.setEnabled(false);
 
-        keySearchEngineOther.setEnabled(false);
-        if (shared.getString("keySearchEngine", "0").equals("5")) {
-            keySearchEngineOther.setEnabled(true);
-        }
         keySearchEngineOther.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:key="categoryApp" android:title="@string/preference_app">
         <ListPreference
@@ -18,16 +19,16 @@
             android:key="keySaveSession"
             android:title="@string/preference_save_session"
             android:summary="@string/preference_summary_save_session"/>
-        <ListPreference
-            android:defaultValue="0"
-            android:key="keySearchEngine"
-            android:title="@string/preference_search_engine"
-            android:summary="%s"
-            android:entries="@array/search_engine_str"
-            android:entryValues="@array/search_engine_val"/>
+<!--        <ListPreference-->
+<!--            android:defaultValue="0"-->
+<!--            android:entries="@array/search_engine_str"-->
+<!--            android:entryValues="@array/search_engine_val"-->
+<!--            android:key="keySearchEngine"-->
+<!--            android:summary="%s"-->
+<!--            android:title="@string/preference_search_engine"/>-->
         <PreferenceScreen
             android:key="keySearchEngineOther"
-            android:title="@string/preference_search_engine_other"/>
+            android:title="@string/preference_search_engine"/>
         <ListPreference
             android:defaultValue="0"
             android:key="keyOptionSearch"

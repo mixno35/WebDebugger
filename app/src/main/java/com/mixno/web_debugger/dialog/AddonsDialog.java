@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mixno.web_debugger.MainActivity;
 import com.mixno.web_debugger.R;
 import com.mixno.web_debugger.adapter.AddonsAdapter;
+import com.mixno.web_debugger.addons.StoreAddonsActivity;
 import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.app.JSManager;
 import com.mixno.web_debugger.model.AddonsModel;
@@ -91,6 +92,13 @@ public class AddonsDialog {
                 }
             });
 
+            buttonStore.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, StoreAddonsActivity.class));
+                }
+            });
+
             try {
 
                 listUP(context);
@@ -138,10 +146,10 @@ public class AddonsDialog {
     public static void listUP(Context context) throws Exception {
         list.clear();
 
-        list.add(new AddonsModel(0, context.getString(R.string.action_source_page), "Edit and show full source page", "", "", JSManager.SOURCE_V2, "2.0.0", 2, true, "", 0));
-        list.add(new AddonsModel(0, context.getString(R.string.action_element_editor), "Edit and show code page element", "", "", JSManager.ELEMENT_EDITOR, "1.0.0", 1, true, "", 0));
-        list.add(new AddonsModel(0, context.getString(R.string.action_console_eruda), "Show console ERUDA", "", "", JSManager.ERUDA_EI, "1.0.0", 1, true, "", 0));
-        list.add(new AddonsModel(0, context.getString(R.string.action_console_firebug), "Show console Firefox - (FireBug)", "", "", JSManager.FIREBUG_EI, "1.0.0.beta", 1, true, "", 0));
+        list.add(new AddonsModel(0, context.getString(R.string.action_source_page), "Edit and show full source page", "", "", JSManager.SOURCE_V2, "2.0.0", 2, true, "", 0, true));
+        list.add(new AddonsModel(0, context.getString(R.string.action_element_editor), "Edit and show code page element", "", "", JSManager.ELEMENT_EDITOR, "1.0.0", 1, true, "", 0, true));
+        list.add(new AddonsModel(0, context.getString(R.string.action_console_eruda), "Show console ERUDA", "", "", JSManager.ERUDA_EI, "1.0.0", 1, true, "", 0, true));
+        list.add(new AddonsModel(0, context.getString(R.string.action_console_firebug), "Show console Firefox - (FireBug)", "", "", JSManager.FIREBUG_EI, "1.0.0.beta", 1, true, "", 0, true));
 
         File addonsFiles = new File(Data.PATH_ADDONS);
         File[] files = addonsFiles.listFiles();
@@ -152,7 +160,7 @@ public class AddonsDialog {
                     JSONObject obj = new JSONObject(addonManifest);
 
                     if (Data.isJSONValid(addonManifest)) {
-                        list.add(new AddonsModel(obj.getInt("id"), obj.getString("name"), obj.getString("description"), files[i].getAbsolutePath(), "", obj.getString("main_source"), obj.getString("version"), obj.getInt("version_code"), true, addonManifest, files[i].lastModified()));
+                        list.add(new AddonsModel(obj.getInt("id"), obj.getString("name"), obj.getString("description"), files[i].getAbsolutePath(), "", obj.getString("main_source"), obj.getString("version"), obj.getInt("version_code"), true, addonManifest, files[i].lastModified(), true));
                     }
                 }
             }

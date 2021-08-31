@@ -33,59 +33,135 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/message_search_engine_other"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-                android:textSize="12sp"
-                android:layout_marginTop="20dp"/>
+                android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editUrl"
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textLongMessage|textMultiLine"
-                    android:maxHeight="220dp"
-                    android:textSize="14sp"
-                    android:hint="https://domain.com/search" />
+                    android:layout_marginTop="4dp">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <RadioButton
+                        android:id="@+id/searchEngineGoogle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_engine_google"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"/>
 
-            <com.google.android.material.textfield.TextInputLayout
+                    <RadioButton
+                        android:id="@+id/searchEngineYandex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_engine_yandex"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"/>
+
+                    <RadioButton
+                        android:id="@+id/searchEngineBing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_engine_bing"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"/>
+
+                    <RadioButton
+                        android:id="@+id/searchEngineYahoo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_engine_yahoo"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"/>
+
+                    <RadioButton
+                        android:id="@+id/searchEngineDuck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_engine_duckduckgo"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"/>
+
+                    <RadioButton
+                        android:id="@+id/searchEngineOther"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_engine_other"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editSearch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textLongMessage|textMultiLine"
-                    android:maxHeight="220dp"
-                    android:textSize="14sp"
-                    android:hint="https://domain.com/search?s=%20" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/buttonGo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_add_search_engine_other"
-                android:textColor="@color/buttonTextColor"
-                android:backgroundTint="@color/colorAccent"
-                android:stateListAnimator="@null"
-                tools:targetApi="lollipop"
+                android:layout_height="1dp"
+                android:background="?dividerHorizontal"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="right"
-                tools:ignore="RtlHardcoded" />
+                android:layout_marginBottom="20dp"/>
+
+            <LinearLayout
+                android:id="@+id/layoutOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_search_engine_other"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                    android:textSize="12sp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textLongMessage|textMultiLine"
+                        android:maxHeight="220dp"
+                        android:textSize="14sp"
+                        android:hint="https://domain.com/search" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textLongMessage|textMultiLine"
+                        android:maxHeight="220dp"
+                        android:textSize="14sp"
+                        android:hint="https://domain.com/search?s=%20" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/buttonGo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_add_search_engine_other"
+                    android:textColor="@color/buttonTextColor"
+                    android:backgroundTint="@color/colorAccent"
+                    android:stateListAnimator="@null"
+                    tools:targetApi="lollipop"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="right"
+                    tools:ignore="RtlHardcoded" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

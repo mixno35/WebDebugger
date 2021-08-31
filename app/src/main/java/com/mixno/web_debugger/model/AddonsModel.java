@@ -11,10 +11,11 @@ public class AddonsModel {
     public String version;
     public int version_code;
     public boolean hideAddons;
+    public boolean running;
     public String manifest;
     public long time;
 
-    public AddonsModel(int id, String name, String description, String path, String icon, String source, String version, int version_code, boolean hideAddons, String manifest, long time) {
+    public AddonsModel(int id, String name, String description, String path, String icon, String source, String version, int version_code, boolean hideAddons, String manifest, long time, boolean running) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -26,6 +27,7 @@ public class AddonsModel {
         this.hideAddons = hideAddons;
         this.manifest = manifest;
         this.time = time;
+        this.running = running;
     }
 
     public int getId() {
@@ -60,5 +62,8 @@ public class AddonsModel {
     }
     public long getTime() {
         return time;
+    }
+    public boolean isRunning() {
+        return running;
     }
 }

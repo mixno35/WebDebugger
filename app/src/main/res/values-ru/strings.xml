@@ -83,6 +83,8 @@
     <string name="action_cookie_new">Добавить новый cookie</string>
     <string name="action_clear_data">Очистить данные</string>
     <string name="action_add_search_engine_other">Сохранить</string>
+    <string name="action_javascript_store_online">Онлайн</string>
+    <string name="action_javascript_store_installed">Установленные</string>
 
     <string name="action_menu_open">Открыть</string>
     <string name="action_menu_copy">Копировать</string>
@@ -196,6 +198,7 @@
     <string name="title_clear_data_cookies">Очистить cookies</string>
     <string name="title_clear_data_session">Очистить сессии</string>
     <string name="title_clear_data_history">Очистить историю</string>
+    <string name="title_search_engine">Поисковая система</string>
     <string name="title_search_engine_other">Своя поисковая система</string>
 
     <string name="ssl_error">Ошибка SSL Сертификата.</string>
@@ -216,6 +219,7 @@
     <string name="toast_unable_verify_purchases">Не удалось проверить покупки. Вы можете вернуть деньги.</string>
     <string name="toast_long_press_for_hidden">Удерживайте, чтобы скрыть навсегда</string>
     <string name="toast_search_engine_other_success">Готово!</string>
+    <string name="toast_no_connect_internet">Нет соединения с интернетом!</string>
 
     <string name="no_logs_console">Здесь ещё ничего нет</string>
     <string name="close_console">Закрыть</string>
