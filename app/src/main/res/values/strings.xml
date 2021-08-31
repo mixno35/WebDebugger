@@ -1,15 +1,20 @@
 <resources>
-    <string name="app_name">WD</string>
-    <string name="app_name_full">Web Debugger</string>
+    <string name="app_name">EI</string>
+    <string name="app_name_full">Element Inspector</string>
 
     <string name="hint_search">Enter url or request</string>
     <string name="hint_write_js">Write javascript source</string>
     <string name="hint_find_to_page">Enter text</string>
     <string name="hint_cookie_name">Name</string>
     <string name="hint_cookie_value">Value</string>
+    <string name="hint_no_content">No data.</string>
+
+    <string name="hint_error_search_engine_other_empty">This field cannot be empty!</string>
+    <string name="hint_error_search_engine_other_search_20">This field must contain the value \"%20\"!</string>
+    <string name="hint_error_search_engine_other_url_invalid">This field contains a strange link!</string>
 
     <string name="loading_page">Loading</string>
-    <string name="belarus">MIKHNO Dev. 2020-2021</string>
+    <string name="belarus">MIXNO Dev. 2020-2021</string>
 
     <string name="action_console">Console</string>
     <string name="action_console_eruda">Console Eruda</string>
@@ -74,7 +79,10 @@
     <string name="action_useragent">UserAgent(beta)</string>
     <string name="action_donate">Donate</string>
     <string name="action_source_code">Source code | GitHub</string>
-    <string name="action_cookie_manager">Cookie Manager</string>
+    <string name="action_cookie_manager">Cookies</string>
+    <string name="action_cookie_new">New cookie</string>
+    <string name="action_clear_data">Clear data</string>
+    <string name="action_add_search_engine_other">Save</string>
 
     <string name="action_menu_open">Open</string>
     <string name="action_menu_copy">Copy</string>
@@ -84,6 +92,7 @@
     <string name="action_menu_remove">Delete</string>
     <string name="action_menu_share">Share</string>
     <string name="action_menu_run">Run</string>
+    <string name="action_menu_edit">Edit</string>
 
     <string name="ssl_check_warning_title">Not secure connection</string>
     <string name="ssl_check_ok_title">The connection is secure</string>
@@ -118,13 +127,19 @@
     <string name="message_manifest_addons"><![CDATA[<b>ID</b>]]> - id for addons (recomend use number)<![CDATA[<br>]]><![CDATA[<b>NAME</b>]]> - name for add-on<![CDATA[<br>]]><![CDATA[<b>DESCRIPTION</b>]]> - small description for add-on<![CDATA[<br>]]><![CDATA[<b>ICON</b>]]> - use icon from file, example: \"logo.png\" or \"icons/logo.png\"<![CDATA[<br>]]><![CDATA[<b>MAIN_SOURCE</b>]]> - use file js or js code without symbol \"<![CDATA[<br>]]><![CDATA[<b>VERSION</b>]]> - version for add-on<![CDATA[<br>]]><![CDATA[<b>VERSION_CODE</b>]]> - use only number</string>
     <string name="message_requesr_help">Each request should be written on a new lin and looklike this: <![CDATA[<b>req=***</b>]]></string>
     <string name="message_poll_hidden">The poll was hidden</string>
-    <string name="message_app_description">The \"Web Debugger\" application is designed to inspect your site or a third-party site to identify errors and vulnerabilities. The application is not responsible for the theft of someone else\'s code and its components. The application is designed for easy testing of sites (in particular mobile). Without access to a PC, you can example any site on your smartphone!</string>
+    <string name="message_app_description">The \"Element Inspector\" application is designed to inspect your site or a third-party site to identify errors and vulnerabilities. The application is not responsible for the theft of someone else\'s code and its components. The application is designed for easy testing of sites (in particular mobile). Without access to a PC, you can example any site on your smartphone!</string>
     <string name="message_confirm_action_send_source_to_home_screen">Are you sure want to push these changes to you home screen?</string>
     <string name="message_what_news"></string>
     <string name="message_information_dev">Hey! This application is absolutely free and does not contain ads, everything is for you! But you donating for new updating the project or leave good feedback in the App Store. Thank you for downloading the app!</string>
     <string name="message_js_create">Make JS source code, for fast run code!</string>
     <string name="message_donate">By coffee, developer, and I will continue to support this project for you and delight you with new updates!</string>
     <string name="message_cookie_remove">You are remove cookie \"%1s\"?</string>
+    <string name="message_clear_data">Choose what you want to clear.</string>
+    <string name="message_clear_data_cache">Clear the entire application cache (picture, saved pages, etc.)</string>
+    <string name="message_clear_data_cookies">Clear all cookies - many pages/sites will have to recreate them, and all passwords and authorized accounts will be reset.</string>
+    <string name="message_clear_data_session">Clear all sessions - many pages/sites will have to recreate them, and all passwords and authorized accounts will be reset.</string>
+    <string name="message_clear_data_history">Clear all history - the entire visit history will be deleted. You will no longer be able to see which pages you visited.</string>
+    <string name="message_search_engine_other">Here you can add your own or third-party search engine.</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Yandex</string>
@@ -133,6 +148,7 @@
     <string name="search_engine_yahoo">Yahoo!</string>
     <string name="search_engine_shenma">Shenma</string>
     <string name="search_engine_duckduckgo">DuckDuckGo</string>
+    <string name="search_engine_other">Other</string>
 
     <string name="theme_system">System</string>
     <string name="theme_light">Light</string>
@@ -174,6 +190,13 @@
     <string name="title_donate">Donate</string>
     <string name="title_say_thanks">Say thanks</string>
     <string name="title_cookie_remove">Remove cookie</string>
+    <string name="title_cookie_manager">Cookies</string>
+    <string name="title_clear_data">Clear data</string>
+    <string name="title_clear_data_cache">Clear cache</string>
+    <string name="title_clear_data_cookies">Clear cookies</string>
+    <string name="title_clear_data_session">Clear session</string>
+    <string name="title_clear_data_history">Clear history</string>
+    <string name="title_search_engine_other">Search engine other</string>
 
     <string name="ssl_error">SSl Certificate error.</string>
     <string name="ssl_error_untrusted">The certificate authority is not trusted.</string>
@@ -192,6 +215,7 @@
     <string name="toast_download_completed">Download finished!</string>
     <string name="toast_unable_verify_purchases">Unable to verify purchases. You can get your money back.</string>
     <string name="toast_long_press_for_hidden">Hold to hide forever</string>
+    <string name="toast_search_engine_other_success">Ready!</string>
 
     <string name="no_logs_console">No log\'s</string>
     <string name="close_console">Close console</string>
@@ -238,6 +262,7 @@
     <string name="preference_theme_webview">Theme web content</string>
     <string name="preference_save_session">Save session</string>
     <string name="preference_search_engine">Search engine</string>
+    <string name="preference_search_engine_other">Search engine other</string>
     <string name="preference_app_about">About application</string>
     <string name="preference_view_bottom_bar">Bottom menu bar</string>
     <string name="preference_view_buttons_bottom_bar">View buttons in bottom menu</string>
@@ -251,12 +276,15 @@
     <string name="preference_pc_version">New PC version option</string>
     <string name="preference_long_press_home">Long holding the \"Home page\" button</string>
     <string name="preference_save_history">Save history</string>
+    <string name="preference_fake_reload_page_web">Fake reload page</string>
+    <string name="preference_clear_data">Clear data</string>
 
     <string name="preference_summary_save_session">Remember last open link (excluding tabs)</string>
     <string name="preference_summary_theme_color">Adapt the colors of the application to match the color of the site</string>
     <string name="preference_summary_pc_version">New processing of the PC version, will allow you to replace the site address and search for mobile mentions</string>
     <string name="preference_summary_long_press_home">Long holding the \"Home page\" button opens \"%s\"</string>
     <string name="preference_summary_save_history">Save history visits</string>
+    <string name="preference_summary_fake_reload_page_web">Fake reload page webview</string>
 
     <string name="certificate_valid">Valid</string>
     <string name="certificate_not_valid">Not valid</string>
@@ -272,7 +300,7 @@
     <string name="certificate_before_date">Date of issue</string>
     <string name="certificate_x509_hash">Hash X509</string>
 
-    <string name="user_agent_ei_ua">Web Debugger</string>
+    <string name="user_agent_ei_ua">Element Inspector</string>
     <string name="user_agent_galaxy_nexus">Android 4.0.2 Browser - Galaxy Nexus</string>
     <string name="user_agent_nexus_s">Android 2.3 Browser - Nexus S</string>
     <string name="user_agent_bb110">BlackBerry - BB110</string>

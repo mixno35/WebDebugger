@@ -20,7 +20,7 @@
             android:id="@+id/iconBitmap"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_favicon_default"/>
+            android:src="@drawable/ic_public_placeholder"/>
 
         <TextView
             android:id="@+id/textTitle"

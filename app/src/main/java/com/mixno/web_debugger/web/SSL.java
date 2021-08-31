@@ -92,8 +92,8 @@ public class SSL {
         try {
             Picasso.with(context)
                     .load("https://www.google.com/s2/favicons?sz=64&domain_url="+host)
-                    .placeholder(R.drawable.ic_console_refresh)
-                    .error(R.drawable.ic_console_warning)
+                    .placeholder(R.drawable.ic_refresh_palceholder)
+                    .error(R.drawable.ic_error_placeholder)
                     .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                     .into(favicon);
         } catch (Exception e) {}

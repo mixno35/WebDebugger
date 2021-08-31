@@ -25,7 +25,7 @@ public class JavaScriptInterface {
     @JavascriptInterface
     public void cookieManagerApp(int id, String name, String value, String cookie) {
 //        Toast.makeText(context, "id: "+id+" name: "+name+" value: "+value, Toast.LENGTH_SHORT).show();
-        CookieManagerDialog.list.add(new CookieManagerModel(id, name, value, cookie));
+//        CookieManagerDialog.list.add(new CookieManagerModel(id, name, value, cookie, ""));
     }
     @JavascriptInterface
     public void toast(String text) {

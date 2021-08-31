@@ -9,20 +9,25 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.webkit.WebViewFeature;
 
 import com.mixno.web_debugger.AboutAppActivity;
+import com.mixno.web_debugger.ClearDataActivity;
 import com.mixno.web_debugger.FeedbackActivity;
+import com.mixno.web_debugger.HistoryActivity;
 import com.mixno.web_debugger.MainActivity;
 import com.mixno.web_debugger.R;
+import com.mixno.web_debugger.SearchEngineOtherActivity;
 import com.mixno.web_debugger.app.Data;
 
 public class SettingsFragment extends PreferenceFragment {
 
     private SharedPreferences sharedLocalhost;
+    private SharedPreferences shared;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,17 +35,32 @@ public class SettingsFragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.preferences);
 
         sharedLocalhost = getActivity().getSharedPreferences("kLocalhost", Context.MODE_PRIVATE);
+        shared = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         Preference keyAboutApp = findPreference("keyAboutApp");
         Preference keyTheme = findPreference("keyTheme");
         Preference keyGrantPermissions = findPreference("keyGrantPermissions");
         Preference keyThemeWebView = findPreference("keyThemeWebView");
-//        Preference keyHistory = findPreference("keyHistory");
+        Preference keyHistory = findPreference("keyHistory");
         Preference keyFeedback = findPreference("keyFeedback");
+        Preference keyClearData = findPreference("keyClearData");
 //        Preference keyRoundedDisplay = findPreference("keyRoundedDisplay");
 //        Preference keyLocalhost = findPreference("keyLocalhost");
+        Preference keySearchEngineOther = findPreference("keySearchEngineOther");
 
 //        keyRoundedDisplay.setEnabled(false);
+
+        keySearchEngineOther.setEnabled(false);
+        if (shared.getString("keySearchEngine", "0").equals("5")) {
+            keySearchEngineOther.setEnabled(true);
+        }
+        keySearchEngineOther.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                getActivity().startActivity(new Intent(getActivity(), SearchEngineOtherActivity.class));
+                return false;
+            }
+        });
 
         keyAboutApp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -56,17 +76,24 @@ public class SettingsFragment extends PreferenceFragment {
                 return false;
             }
         });
-//        keyHistory.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-//            @Override
-//            public boolean onPreferenceClick(Preference preference) {
-//                getActivity().startActivity(new Intent(getActivity(), HistoryActivity.class));
-//                return false;
-//            }
-//        });
+        keyHistory.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                getActivity().startActivity(new Intent(getActivity(), HistoryActivity.class));
+                return false;
+            }
+        });
         keyFeedback.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 getActivity().startActivity(new Intent(getActivity(), FeedbackActivity.class));
+                return false;
+            }
+        });
+        keyClearData.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                getActivity().startActivity(new Intent(getActivity(), ClearDataActivity.class));
                 return false;
             }
         });

@@ -7,6 +7,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="search_engine_str">
         <item>@string/search_engine_google</item>
@@ -14,6 +15,7 @@
         <item>@string/search_engine_bing</item>
         <item>@string/search_engine_yahoo</item>
         <item>@string/search_engine_duckduckgo</item>
+        <item>@string/search_engine_other</item>
     </string-array>
 
     <string-array name="theme_val">

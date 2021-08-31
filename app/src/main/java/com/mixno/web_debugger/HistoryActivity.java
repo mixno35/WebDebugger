@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ProgressBar progressBar2;
+    private LinearLayout noContent;
 
     private RecyclerView listHistory;
     private RecyclerView.Adapter listAdapter;
@@ -61,6 +63,7 @@ public class HistoryActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         listHistory = findViewById(R.id.listHistory);
         progressBar2 = findViewById(R.id.progressBar2);
+        noContent = findViewById(R.id.noContent);
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -73,8 +76,28 @@ public class HistoryActivity extends AppCompatActivity {
                 }
             });
         }
+    }
 
+    private void loadHistory () {
         historyList.clear();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                listHistory.setVisibility(View.GONE);
+            }
+        });
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar2.setVisibility(View.VISIBLE);
+            }
+        });
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                noContent.setVisibility(View.GONE);
+            }
+        });
 
         try {
             File historyFiles = new File(Data.PATH_HISTORY);
@@ -110,6 +133,12 @@ public class HistoryActivity extends AppCompatActivity {
                             progressBar2.setVisibility(View.GONE);
                         }
                     });
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            listHistory.setVisibility(View.VISIBLE);
+                        }
+                    });
 
                     if (historyList.size() > 0) {
                         runOnUiThread(new Runnable() {
@@ -121,13 +150,44 @@ public class HistoryActivity extends AppCompatActivity {
                             }
                         });
                     }
+
+                    setTitleUpd();
+
+                    if (historyList.size() == 0) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                noContent.setVisibility(View.VISIBLE);
+                            }
+                        });
+                    }
                 }
             }, 3000);
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    listHistory.setVisibility(View.GONE);
+                }
+            });
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    progressBar2.setVisibility(View.GONE);
+                }
+            });
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    noContent.setVisibility(View.VISIBLE);
+                }
+            });
         }
+    }
 
-
+    private void setTitleUpd () {
+        setTitle(getString(R.string.title_back_history) + " (" + historyList.size() + ")");
     }
 
     @Override
@@ -159,6 +219,9 @@ public class HistoryActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(HistoryActivity.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION);
         } else {
             Data.createDefaultFolders(this);
+
+            loadHistory();
+
             Snackbar.make(findViewById(R.id.content), getString(R.string.message_small_problems_storage), 2000).setAction(getString(R.string.action_help), new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -172,7 +235,8 @@ public class HistoryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.removeAll:
-                removeAllHistory();
+//                removeAllHistory();
+                startActivity(new Intent(HistoryActivity.this, ClearDataActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -197,7 +261,7 @@ public class HistoryActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), getString(R.string.toast_history_cleared), Toast.LENGTH_LONG).show();
                     }
                 });
-                listHistory.setAdapter(listAdapter);
+                loadHistory();
             }
         });
         builder.setNegativeButton(getString(R.string.action_cancel), new DialogInterface.OnClickListener() {

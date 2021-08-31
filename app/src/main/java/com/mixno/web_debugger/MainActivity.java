@@ -482,8 +482,9 @@ public class MainActivity extends AppCompatActivity {
 //                    startActivity(new Intent(MainActivity.this, AboutAppActivity.class));
 //                }
                 if (item.getItemId() == R.id.actionCookieManager) {
-                    mWeb.runJS(JSManager.COOKIES_MANAGER);
-                    new CookieManagerDialog(MainActivity.this, mWeb);
+//                    mWeb.runJS(JSManager.COOKIES_MANAGER);
+//                    new CookieManagerDialog(MainActivity.this, mWeb);
+                    startActivity(new Intent(MainActivity.this, CookieManagerActivity.class));
                 }
                 if (item.getItemId() == R.id.actionExit) {
                     finish();
@@ -732,8 +733,9 @@ public class MainActivity extends AppCompatActivity {
                         new UserAgentDialog(MainActivity.this, mWeb);
                         break;
                     case "5": // Cookie Manager
-                        mWeb.runJS(JSManager.COOKIES_MANAGER);
-                        new CookieManagerDialog(MainActivity.this, mWeb);
+//                        mWeb.runJS(JSManager.COOKIES_MANAGER);
+//                        new CookieManagerDialog(MainActivity.this, mWeb);
+                        startActivity(new Intent(MainActivity.this, CookieManagerActivity.class));
                         break;
                 }
                 return true;
@@ -745,7 +747,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Meu bottom
+        // Menu bottom
         menuBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -765,10 +767,14 @@ public class MainActivity extends AppCompatActivity {
         menuRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mWeb.isLoading()) {
-                    mWeb.stopLoading();
+                if (shared.getBoolean("keyFakeReloadPage", false)) {
+                    setFakeReloadPage();
                 } else {
-                    mWeb.reload();
+                    if (mWeb.isLoading()) {
+                        mWeb.stopLoading();
+                    } else {
+                        mWeb.reload();
+                    }
                 }
             }
         });
@@ -1037,6 +1043,66 @@ public class MainActivity extends AppCompatActivity {
     // ПОИСК ПО СТРАНИЦЕ-------------------------------------------------------------------------------------
 
 
+
+    // ФЕЙКОВОЕ ОБНОВЛЕНИЕ СТРАНИЦЫ -------------------------------------------------------------------------
+    private void setFakeReloadPage() {
+        menuRefresh.setImageResource(R.drawable.ic_menu_cancel);
+        TooltipCompat.setTooltipText(menuRefresh, getString(R.string.tooltip_cancel_page));
+        showProgress();
+        mProgress.post(new Runnable() {
+            @Override
+            public void run() {
+                mProgress.setProgress(0);
+            }
+        });
+        mProgress.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mProgress.setProgress(10);
+            }
+        }, 400);
+        mProgress.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mProgress.setProgress(40);
+            }
+        }, 600);
+        mProgress.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mProgress.setProgress(80);
+            }
+        }, 1200);
+        mProgress.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mProgress.setProgress(87);
+            }
+        }, 1600);
+
+        mWeb.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mWeb.setVisibility(View.INVISIBLE);
+            }
+        }, 500);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                hideProgress();
+                menuRefresh.setImageResource(R.drawable.ic_menu_refresh);
+                TooltipCompat.setTooltipText(menuRefresh, getString(R.string.tooltip_refresh_page));
+
+                mWeb.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mWeb.setVisibility(View.VISIBLE);
+                    }
+                });
+            }
+        }, Data.getRandomNum(1700, 3600));
+    }
+    // ФЕЙКОВОЕ ОБНОВЛЕНИЕ СТРАНИЦЫ -------------------------------------------------------------------------
 
 
 
@@ -1332,25 +1398,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            String typeConsole = "";
-            switch (consoleMessage.messageLevel()) {
-                case TIP:
-                    typeConsole = "tip";
-                    break;
-                case LOG:
-                    typeConsole = "log";
-                    break;
-                case WARNING:
-                    typeConsole = "warning";
-                    break;
-                case ERROR:
-                    typeConsole = "error";
-                    break;
-                case DEBUG:
-                    typeConsole = "debug";
-                    break;
-            }
-            consoleList.add(new ConsoleModel(consoleMessage.message(), consoleMessage.lineNumber(), consoleMessage.sourceId(), new Long(System.currentTimeMillis()/1000).toString(), typeConsole));
+            consoleList.add(new ConsoleModel(consoleMessage.message(), consoleMessage.lineNumber(), consoleMessage.sourceId(), new Long(System.currentTimeMillis()/1000).toString(), consoleMessage.messageLevel().toString()));
             return true;
         }
 

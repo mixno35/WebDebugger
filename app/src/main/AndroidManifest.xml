@@ -94,6 +94,21 @@
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize|locale"/>
         <activity
+            android:name="com.mixno.web_debugger.CookieManagerActivity"
+            android:label="@string/title_cookie_manager"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.ClearDataActivity"
+            android:label="@string/title_clear_data"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.SearchEngineOtherActivity"
+            android:label="@string/title_search_engine_other"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
             android:name="com.mixno.web_debugger.LocalhostActivity"
             android:label="@string/title_localhost"
             android:windowSoftInputMode="stateHidden"

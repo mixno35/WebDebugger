@@ -17,7 +17,7 @@
 
             <ImageView
                 android:id="@+id/favicon"
-                android:src="@drawable/ic_console_warning"
+                android:src="@drawable/ic_refresh_palceholder"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="14dp"

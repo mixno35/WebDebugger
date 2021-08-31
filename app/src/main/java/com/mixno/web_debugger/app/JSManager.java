@@ -307,4 +307,5 @@ public class JSManager {
     public static String META_THEME_COLOR = "(function () { const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) { if (metas[i].getAttribute('name') === 'theme-color') { return window.$$.siteTheme(metas[i].getAttribute('content')); } } return ''; })();";
     public static String PC_MODE = "document.querySelector('meta[name=\"viewport\"').setAttribute('content', 'width=1024px, initial-scale=' + (document.documentElement.clientWidth/1024));";
 
+    public static String FAKE_REFRESH_PAGE = "(function(){ window.history.pushState(1, 'Title', '/fake-ei') })();";
 }

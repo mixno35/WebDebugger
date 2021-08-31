@@ -1,15 +1,20 @@
 <resources>
-    <string name="app_name">WD</string>
-    <string name="app_name_full">Web Debugger</string>
+    <string name="app_name">EI</string>
+    <string name="app_name_full">Element Inspector</string>
 
     <string name="hint_search">Введите URL или запрос</string>
     <string name="hint_write_js">Введите JavaScript</string>
     <string name="hint_find_to_page">Введите текст</string>
     <string name="hint_cookie_name">Название</string>
     <string name="hint_cookie_value">Значение</string>
+    <string name="hint_no_content">Здесь ничего нет.</string>
+
+    <string name="hint_error_search_engine_other_empty">Это поле не может быть пустым!</string>
+    <string name="hint_error_search_engine_other_search_20">Это поле должно содержать значение \"%20\"!</string>
+    <string name="hint_error_search_engine_other_url_invalid">Это поле содержит странную ссылку!</string>
 
     <string name="loading_page">Загрузка</string>
-    <string name="belarus">MIKHNO Dev. 2020-2021</string>
+    <string name="belarus">MIXNO Dev. 2020-2021</string>
 
     <string name="action_console">Консоль</string>
     <string name="action_console_eruda">Консоль Eruda</string>
@@ -74,7 +79,10 @@
     <string name="action_useragent">UserAgent(бета)</string>
     <string name="action_donate">Пожертвовать деньги</string>
     <string name="action_source_code">Исходный код | GitHub</string>
-    <string name="action_cookie_manager">Cookie Менеджер</string>
+    <string name="action_cookie_manager">Cookies</string>
+    <string name="action_cookie_new">Добавить новый cookie</string>
+    <string name="action_clear_data">Очистить данные</string>
+    <string name="action_add_search_engine_other">Сохранить</string>
 
     <string name="action_menu_open">Открыть</string>
     <string name="action_menu_copy">Копировать</string>
@@ -84,6 +92,7 @@
     <string name="action_menu_remove">Удалить</string>
     <string name="action_menu_share">Поделиться</string>
     <string name="action_menu_run">Запустить</string>
+    <string name="action_menu_edit">Изменить</string>
 
     <string name="ssl_check_warning_title">Нет надежного соединени с сайтом</string>
     <string name="ssl_check_ok_title">Соединение защищено</string>
@@ -96,7 +105,7 @@
     <string name="message_highlight_border">Подсветка границ, Вы сможете увидеть все границы всех элементов на странице.</string>
     <string name="message_what_app">В данном приложении Вы можете редактировать любой сайт, а так же его просматривать без изменения и использовать приложение как простой браузер.</string>
     <string name="message_debug_mode">Как работает Debug мод? Для работы данной функции, вам понадобится: ПК и Google Chrome. Откройте Chrome на ПК и введите в адресной строке chrome://inspect/#devices или chrome://tracing . Не забудьте подключить Ваше устройство к ПК по USB и включить отладку по USB, включить Debug мод в настройках приложения и перезапустите приложение.</string>
-    <string name="message_storage_problem">Если у Вас проблемы с храниличем в этом приложении, следуйте текстовой инструкции. Откройте НАСТРОЙКИ, выберите пункт ПРИЛОЖЕНИЯ, выберите в списке приложение WEB DEBUGGER, перейдите в РАЗРЕШЕНИЯ и откройте доступ к ХРАНИЛИЩУ. Если Вы уже выдали данное разрешение, уберите его и разрешите снова.</string>
+    <string name="message_storage_problem">Если у Вас проблемы с храниличем в этом приложении, следуйте текстовой инструкции. Откройте НАСТРОЙКИ, выберите пункт ПРИЛОЖЕНИЯ, выберите в списке приложение ELEMENT INSPECTOR, перейдите в РАЗРЕШЕНИЯ и откройте доступ к ХРАНИЛИЩУ. Если Вы уже выдали данное разрешение, уберите его и разрешите снова.</string>
     <string name="message_save_session">Сохранение сессии. Данная функция позволит не терять последний посещенный сайт. Теперь если вы закроете приложение и откроете, всегда будет загружен последний посещенный сайт.</string>
     <string name="message_element_editor">Редактируйте исходный код любого элемента на странице.</string>
     <string name="message_what_is_it_addons">Дополнения, которые находятся здесь, они отличаются от других дополнений, для других браузеров. Данные дополнения не могут работать в фоне или загружаться совместно с страницей. Данные дополнения содержат в себе лишь JavaScript код и не более - котрый может быть выполнен, после полной загрузки страницы. Вы также можете создать своё дополнение, для этого, снизу есть пример, как должен быть заполнен главный файл \"manifest.json\". Создать дополнение просто: Откройте любой проводник, найдите папку \"Inspector\", в ней папку \"addons\", затем создайте там свою папку и в созданной папке, создайте файл \"manifest.json\". Заполните файл, по примеру ниже!</string>
@@ -118,13 +127,19 @@
     <string name="message_manifest_addons"><![CDATA[<b>ID</b>]]> - идентификатор для дополнения (рекомендую использовать только цифры)<![CDATA[<br>]]><![CDATA[<b>NAME</b>]]> - имя для дополнения<![CDATA[<br>]]><![CDATA[<b>DESCRIPTION</b>]]> - краткое описание дополнения<![CDATA[<br>]]><![CDATA[<b>ICON</b>]]> - используйте файл для иконки, пример: \"logo.png\" или \"icons/logo.png\"<![CDATA[<br>]]><![CDATA[<b>MAIN_SOURCE</b>]]> - используйте файл js или код js, избегайте символа \"<![CDATA[<br>]]><![CDATA[<b>VERSION</b>]]> - версия для дополнения<![CDATA[<br>]]><![CDATA[<b>VERSION_CODE</b>]]> - версия кода, используйте только цифры</string>
     <string name="message_requesr_help">Каждый запрос должен быть написан с новой строки и выглядеть так: <![CDATA[<b>req=***</b>]]></string>
     <string name="message_poll_hidden">Опрос был скрыт</string>
-    <string name="message_app_description">Приложение \"Web Debugger\" созданно для инспектирования вашего или стороннего сайта, для выявления ошибок или уязвимостей. Приложение не несёт характер - украсть чужой код и его составляющее. Приложение преднозначено для удобного тестирования сайтов (в частности мобильных). Не имея доступа к ПК - Вы можете исследовать любой сайт на смартфоне или планшете!</string>
+    <string name="message_app_description">Приложение \"Element Inspector\" созданно для инспектирования вашего или стороннего сайта, для выявления ошибок или уязвимостей. Приложение не несёт характер - украсть чужой код и его составляющее. Приложение преднозначено для удобного тестирования сайтов (в частности мобильных). Не имея доступа к ПК - Вы можете исследовать любой сайт на смартфоне или планшете!</string>
     <string name="message_confirm_action_send_source_to_home_screen">Вы действительно хотите отправить эти изменения на главный экран?</string>
     <string name="message_what_news"></string>
     <string name="message_information_dev">Привет! Это приложение абсолютно бесплатное и не содержит рекламы - всё для Вас! Но Вы всегда можете пожертвовать на развитие проекта или оставить хороший отзыв в Магазине Приложений. Спасибо, что скачали приложение!</string>
     <string name="message_js_create">Создайте свой сторонний JS код, для быстрого его запуска на любом сайте!</string>
     <string name="message_donate">Купите кофе разработчику, и я буду дальше бесплатно поддерживать этот проект для Вас и радовать новыми обновлениями!</string>
     <string name="message_cookie_remove">Вы действительно хотите удалить этот cookie \"%1s\"?</string>
+    <string name="message_clear_data">Выберите, что хотите очистить.</string>
+    <string name="message_clear_data_cache">Очистить весь кэш приложения (картинки, сохраненные страницы и т.д..)</string>
+    <string name="message_clear_data_cookies">Очистить все cookies - многим страницам/сайтам придется их пересоздать, также (возможно) будут сброшены все пароли и авторизованные аккаунты.</string>
+    <string name="message_clear_data_session">Очистить все сессии/сеансы - многим страницам/сайтам придется их пересоздать, также (возможно) будут сброшены все временные пароли и авторизованные аккаунты.</string>
+    <string name="message_clear_data_history">Очистить всю историю посещения - будет удалена вся история посещения. Вы больше не сможете увидеть какие страницы посещали.</string>
+    <string name="message_search_engine_other">Здесь вы можете добавить свою или стороннюю поисковую систему.</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Яндекс</string>
@@ -133,6 +148,7 @@
     <string name="search_engine_yahoo">Yahoo!</string>
     <string name="search_engine_shenma">Shenma</string>
     <string name="search_engine_duckduckgo">DuckDuckGo</string>
+    <string name="search_engine_other">Другая</string>
 
     <string name="theme_system">Системная</string>
     <string name="theme_light">Светлая</string>
@@ -174,6 +190,13 @@
     <string name="title_donate">Пожертвование</string>
     <string name="title_say_thanks">Сказать спасибо</string>
     <string name="title_cookie_remove">Удалить cookie</string>
+    <string name="title_cookie_manager">Cookies</string>
+    <string name="title_clear_data">Очистить данные</string>
+    <string name="title_clear_data_cache">Очистить кэш</string>
+    <string name="title_clear_data_cookies">Очистить cookies</string>
+    <string name="title_clear_data_session">Очистить сессии</string>
+    <string name="title_clear_data_history">Очистить историю</string>
+    <string name="title_search_engine_other">Своя поисковая система</string>
 
     <string name="ssl_error">Ошибка SSL Сертификата.</string>
     <string name="ssl_error_untrusted">Подозрительный центр сертификации.</string>
@@ -192,6 +215,7 @@
     <string name="toast_download_completed">Скачивание завершено!</string>
     <string name="toast_unable_verify_purchases">Не удалось проверить покупки. Вы можете вернуть деньги.</string>
     <string name="toast_long_press_for_hidden">Удерживайте, чтобы скрыть навсегда</string>
+    <string name="toast_search_engine_other_success">Готово!</string>
 
     <string name="no_logs_console">Здесь ещё ничего нет</string>
     <string name="close_console">Закрыть</string>
@@ -238,6 +262,7 @@
     <string name="preference_theme_webview">Тема для сайтов</string>
     <string name="preference_save_session">Сохранить сессию</string>
     <string name="preference_search_engine">Поисковая система</string>
+    <string name="preference_search_engine_other">Своя поисковая система</string>
     <string name="preference_app_about">О приложении</string>
     <string name="preference_view_bottom_bar">Нижняя панель навигации</string>
     <string name="preference_view_buttons_bottom_bar">View buttons in bottom menu</string>
@@ -251,12 +276,15 @@
     <string name="preference_pc_version">Новая обработка ПК версии</string>
     <string name="preference_long_press_home">Долгое удержание кнопки \"Главная страница\"</string>
     <string name="preference_save_history">Сохранить историю</string>
+    <string name="preference_fake_reload_page_web">Фейковое обновление страницы</string>
+    <string name="preference_clear_data">Очистить данные</string>
 
     <string name="preference_summary_save_session">Сохраняет последнюю открытую страницу</string>
     <string name="preference_summary_theme_color">Адаптировать цвета приложения, под цвет сайт</string>
     <string name="preference_summary_pc_version">Новая обработка ПК версии, позволит заменять адрес сайта и искать мобильные упоминания</string>
     <string name="preference_summary_long_press_home">Долгое удержание кнопки \"Главная страница\" открывает \"%s\"</string>
     <string name="preference_summary_save_history">Сохраняет историю посещений страниц</string>
+    <string name="preference_summary_fake_reload_page_web">Фейковое обнрвление страницы</string>
 
     <string name="certificate_valid">Действителен</string>
     <string name="certificate_not_valid">Не действителен</string>
@@ -272,7 +300,7 @@
     <string name="certificate_before_date">Дата выдачи</string>
     <string name="certificate_x509_hash">Hash X509</string>
 
-    <string name="user_agent_ei_ua">Web Debugger</string>
+    <string name="user_agent_ei_ua">Element Inspector</string>
     <string name="user_agent_galaxy_nexus">Android 4.0.2 Browser - Galaxy Nexus</string>
     <string name="user_agent_nexus_s">Android 2.3 Browser - Nexus S</string>
     <string name="user_agent_bb110">BlackBerry - BB110</string>

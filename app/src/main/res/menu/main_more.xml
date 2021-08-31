@@ -26,7 +26,7 @@
     <item android:id="@+id/actionDesktopVersion" android:title="@string/action_desktop_version" android:checkable="true"/>
     <item android:id="@+id/actionFindToPage" android:title="@string/action_find_to_page"/>
     <item android:id="@+id/actionSettings" android:title="@string/action_settings"/>
-    <item android:id="@+id/actionHistoryM" android:title="@string/action_history"/>
+    <item android:id="@+id/actionHistoryM" android:title="@string/action_history" android:visible="false"/>
 <!--    <item android:id="@+id/actionFeedback" android:title="@string/action_feedback_and_help"/>-->
 <!--    <item android:id="@+id/actionHelp" android:title="@string/action_help"/>-->
 <!--    <item android:id="@+id/actionDonate" android:title="@string/action_donate"/>-->

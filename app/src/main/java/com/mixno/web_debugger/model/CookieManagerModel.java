@@ -6,12 +6,14 @@ public class CookieManagerModel {
     private String name;
     private String value;
     private String cookie;
+    private String url;
 
-    public CookieManagerModel(int id, String name, String value, String cookie) {
+    public CookieManagerModel(int id, String name, String value, String cookie, String url) {
         this.id = id;
         this.name = name;
         this.value = value;
         this.cookie = cookie;
+        this.url = url;
     }
 
     public int getId() {
@@ -28,5 +30,9 @@ public class CookieManagerModel {
 
     public String getCookie() {
         return cookie;
+    }
+
+    public String getUrl() {
+        return url;
     }
 }

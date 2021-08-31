@@ -16,9 +16,11 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import java.util.logging.Handler;
 
 import com.mixno.web_debugger.R;
 import com.mixno.web_debugger.app.Data;
+import com.mixno.web_debugger.app.DataAnim;
 import com.mixno.web_debugger.model.BackHistoryModel;
 import com.mixno.web_debugger.widget.WebEI;
 import com.squareup.picasso.MemoryPolicy;
@@ -66,8 +68,8 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
                 try {
                     Picasso.with(context)
                             .load("https://www.google.com/s2/favicons?sz=64&domain_url="+ finalHost)
-                            .placeholder(R.drawable.ic_favicon_default)
-                            .error(R.drawable.ic_favicon_default)
+                            .placeholder(R.drawable.ic_public_placeholder)
+                            .error(R.drawable.ic_public_placeholder)
                             .into(holder.iconBitmap);
                 } catch (Exception e) {}
             }
@@ -95,7 +97,7 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                alertMenu(name, url, position);
+                alertMenu(name, url, position, holder.itemView);
                 return false;
             }
         });
@@ -133,7 +135,7 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
         }
     }
 
-    private void alertMenu(final String name, final String url, final int position) {
+    private void alertMenu(final String name, final String url, final int position, final View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(url);
 
@@ -155,10 +157,16 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
                         Data.clipboard(context, url, true);
                         break;
                     case 3: // Remove
+                        DataAnim.setAnimationDelete(context, view);
                         dialog.dismiss();
                         Data.deleteDF(new File(PATH_HISTORY + File.separator + name));
-                        list.remove(position);
-                        notifyDataSetChanged();
+                        view.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                list.remove(position);
+                                notifyDataSetChanged();
+                            }
+                        }, DataAnim.DURATION_ANIM);
                         break;
                 }
             }

@@ -351,6 +351,13 @@ public class WebEI extends WebView {
             case "4":
                 result = URL_HOME_DUCKDUCKGO;
                 break;
+            case "5":
+                if (shared.getString("keySearchEngineOtherHome", URL_HOME_GOOGLE).trim().equals("")) {
+                    result = URL_HOME_GOOGLE;
+                } else {
+                    result = shared.getString("keySearchEngineOtherHome", URL_HOME_GOOGLE);
+                }
+                break;
         }
         return result;
     }
@@ -371,6 +378,13 @@ public class WebEI extends WebView {
                 break;
             case "4":
                 result = URL_SEARCH_DUCKDUCKGO;
+                break;
+            case "5":
+                if (shared.getString("keySearchEngineOtherSearch", URL_SEARCH_GOOGLE).trim().equals("")) {
+                    result = URL_SEARCH_GOOGLE;
+                } else {
+                    result = shared.getString("keySearchEngineOtherSearch", URL_SEARCH_GOOGLE);
+                }
                 break;
         }
         return result;
