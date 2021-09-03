@@ -9,12 +9,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
+        app:elevation="0dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorActionBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"/>
@@ -29,14 +30,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:elevation="4dp"
+                android:background="@color/windowBackground">
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -93,20 +96,23 @@
 
                 </RadioGroup>
 
-            </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?dividerHorizontal"
+                    android:layout_marginTop="20dp"
+                    android:visibility="invisible"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?dividerHorizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layoutOther"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -127,7 +133,7 @@
                         android:inputType="textLongMessage|textMultiLine"
                         android:maxHeight="220dp"
                         android:textSize="14sp"
-                        android:hint="https://domain.com/search" />
+                        android:hint="@string/hint_other_search_engine_home" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,7 +149,7 @@
                         android:inputType="textLongMessage|textMultiLine"
                         android:maxHeight="220dp"
                         android:textSize="14sp"
-                        android:hint="https://domain.com/search?s=%20" />
+                        android:hint="@string/hint_other_search_engine_search" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

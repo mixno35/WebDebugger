@@ -1,5 +1,6 @@
 package com.mixno.web_debugger;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -16,6 +17,7 @@ import androidx.webkit.WebViewFeature;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,6 +26,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
@@ -70,6 +75,7 @@ import com.mixno.web_debugger.dialog.CodeStyleDialog;
 import com.mixno.web_debugger.dialog.CookieManagerDialog;
 import com.mixno.web_debugger.dialog.RateAppDialog;
 import com.mixno.web_debugger.dialog.UserAgentDialog;
+import com.mixno.web_debugger.dialog.WelcomeDialog;
 import com.mixno.web_debugger.menu.ImageMenu;
 import com.mixno.web_debugger.model.BackHistoryModel;
 import com.mixno.web_debugger.model.ConsoleModel;
@@ -86,7 +92,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static WebEI mWeb;
-    private Toolbar toolbar;
+    private static Toolbar toolbar;
     private AppBarLayout appbar;
     private EditText mEditSearch;
     private ProgressBar mProgress;
@@ -102,10 +108,11 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<ConsoleModel> consoleList = new ArrayList<>();
     public static ArrayList<BackHistoryModel> backHistoryList = new ArrayList<>();
 
-    private SharedPreferences shared;
+    private static SharedPreferences shared;
     private SharedPreferences saveSESSION;
     private SharedPreferences rateSP;
     private SharedPreferences rateSPNum;
+    private SharedPreferences welcomeApp;
 
     private String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION};
 
@@ -373,11 +380,16 @@ public class MainActivity extends AppCompatActivity {
         saveSESSION = getSharedPreferences("session_url", Context.MODE_PRIVATE);
         rateSP = getSharedPreferences("rate", Context.MODE_PRIVATE);
         rateSPNum = getSharedPreferences("rateNum", Context.MODE_PRIVATE);
+        welcomeApp = getSharedPreferences("welcomeApp", Context.MODE_PRIVATE);
 
         if (!rateSP.getBoolean("rate", false) && rateSPNum.getInt("rateNum", 0) >= 5) {
             new RateAppDialog(this, rateSP);
         }
         closeFindToPage();
+
+        if (!welcomeApp.getBoolean("welcomeApp", false)) {
+            new WelcomeDialog(this);
+        }
 
         rateSPNum.edit().putInt("rateNum", rateSPNum.getInt("rateNum", 0) + 1).apply();
 
@@ -986,6 +998,40 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+    // ЦВЕТ ПРИЛОЖЕНИЯ ОТ САЙТА------------------------------------------------------------------------------
+    public static void setThemeColorApp(Context context, String color, String color2) { // TESTING...
+        if (Data.isColorHex(color)) {
+            try {
+                new MainActivity().toolbar.setBackgroundColor(Color.parseColor(color));
+            } catch (Exception e) {}
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    ((Activity)context).getWindow().setStatusBarColor(Color.parseColor(color2));
+                }
+            } catch (Exception e) {}
+
+//            Toast.makeText(context, color, Toast.LENGTH_SHORT).show();
+
+            if (Data.isDarkColor(Color.parseColor(color))) {
+                setDarkApp(context);
+//                Toast.makeText(context, "Color dark", Toast.LENGTH_SHORT).show();
+            } else {
+                setLightApp(context);
+//                Toast.makeText(context, "Color light", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private static void setDarkApp(Context context) {
+        Data.clearLightStatusBar(((Activity)context));
+    }
+    private static void setLightApp(Context context) {
+        Data.setLightStatusBar(((Activity)context));
+    }
+    // ЦВЕТ ПРИЛОЖЕНИЯ ОТ САЙТА------------------------------------------------------------------------------
+
+
     // ПОИСК ПО СТРАНИЦЕ-------------------------------------------------------------------------------------
     private void openFindToPage() {
         runOnUiThread(new Runnable() {
@@ -1053,30 +1099,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 mProgress.setProgress(0);
+                changeTextUrl(getString(R.string.loading_page) + " " + 0 + " %");
             }
         });
         mProgress.postDelayed(new Runnable() {
             @Override
             public void run() {
                 mProgress.setProgress(10);
+                changeTextUrl(getString(R.string.loading_page) + " " + 10 + " %");
             }
         }, 400);
         mProgress.postDelayed(new Runnable() {
             @Override
             public void run() {
                 mProgress.setProgress(40);
+                changeTextUrl(getString(R.string.loading_page) + " " + 40 + " %");
             }
         }, 600);
         mProgress.postDelayed(new Runnable() {
             @Override
             public void run() {
                 mProgress.setProgress(80);
+                changeTextUrl(getString(R.string.loading_page) + " " + 80 + " %");
             }
         }, 1200);
         mProgress.postDelayed(new Runnable() {
             @Override
             public void run() {
                 mProgress.setProgress(87);
+                changeTextUrl(getString(R.string.loading_page) + " " + 87 + " %");
             }
         }, 1600);
 
@@ -1092,6 +1143,7 @@ public class MainActivity extends AppCompatActivity {
                 hideProgress();
                 menuRefresh.setImageResource(R.drawable.ic_menu_refresh);
                 TooltipCompat.setTooltipText(menuRefresh, getString(R.string.tooltip_refresh_page));
+                changeTextUrl(mWeb.getUrl());
 
                 mWeb.post(new Runnable() {
                     @Override
@@ -1246,6 +1298,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
+
+            try {
+                mEditSearch.post(new Runnable() {
+                    @Override
+                    public void run() {
+//                        mEditSearch.setFocusable(false);
+                    }
+                });
+            } catch (Exception e) {}
         }
 
         @Override
@@ -1268,9 +1329,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
+
             mWeb.runJS(JSManager.LOG1_EI);
             mWeb.runJS(JSManager.LOG2_EI);
             mWeb.runJS(JSManager.LOG3_EI);
+
+            if (shared.getBoolean("keyThemeColor", false)) {
+                setThemeColorApp(MainActivity.this, Integer.toHexString(R.color.colorActionBar), Integer.toHexString(R.color.colorPrimaryDark));
+                mWeb.runJS(JSManager.META_THEME_COLOR);
+            }
 
 //            new Handler().postDelayed(new Runnable() {
 //                @Override

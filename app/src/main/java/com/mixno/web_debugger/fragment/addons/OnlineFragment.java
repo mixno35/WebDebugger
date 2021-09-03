@@ -28,7 +28,7 @@ public class OnlineFragment extends Fragment {
 
     private TextView listAddons;
 
-    public String txt;
+    public String txt = "";
 
     @Nullable
     @Override

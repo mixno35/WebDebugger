@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,141 +10,156 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageApp"
+                android:layout_width="195dp"
+                android:layout_height="195dp"
+                android:cropToPadding="true"
+                android:src="@drawable/icon_ei_about"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="15dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textAppName"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="28sp"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/title_remove"
-                    android:textStyle="bold"
-                    android:text="@string/action_about"
-                    android:gravity="left"
-                    android:layout_marginTop="25dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textAppName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="28sp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/title_remove"
+                        android:textStyle="bold"
+                        android:text="@string/action_about"
+                        android:gravity="left"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="0dp"
+                        android:fontFamily="@font/ds_font_extrabold"
+                        app:layout_scrollFlags="scroll|enterAlwaysCollapsed"/>
+
+                    <TextView
+                        android:id="@+id/textAppVersion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="0.0.0"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="25dp"
+                        android:textColor="@color/message_remove"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:layout_marginBottom="25dp"
-                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed"/>
+                    android:layout_marginTop="210dp"
+                    android:textSize="13sp"
+                    android:text="@string/message_app_description"
+                    android:textColor="@android:color/darker_gray"/>
+
+                <Button
+                    android:id="@+id/buttonSupportProject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_support_project"
+                    android:backgroundTint="@color/colorAccent"
+                    app:backgroundTint="@color/colorAccent"
+                    android:stateListAnimator="@null"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="12sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <Button
+                    android:id="@+id/buttonSourceCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_source_code"
+                    android:backgroundTint="@color/colorAccent"
+                    app:backgroundTint="@color/colorAccent"
+                    android:stateListAnimator="@null"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="12sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginBottom="15dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textAppVersion"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="0.0.0"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="4dp"
-                            android:textColor="@color/message_remove"/>
-
-                    </LinearLayout>
+                    android:gravity="center">
 
                     <ImageView
-                        android:id="@+id/imageApp"
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
-                        android:cropToPadding="true"
-                        android:background="@drawable/rounded_icon_app"
-                        android:src="@mipmap/ic_launcher" />
+                        android:id="@+id/actionVK"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_vk"
+                        android:padding="8dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:tint="@color/linkImageAbout"/>
+
+                    <ImageView
+                        android:id="@+id/actionTELEGRAM"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_telegram"
+                        android:padding="8dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:tint="@color/linkImageAbout"/>
+
+                    <ImageView
+                        android:id="@+id/actionINSTAGRAM"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_instagram"
+                        android:padding="8dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:tint="@color/linkImageAbout"/>
+
+                    <ImageView
+                        android:id="@+id/actionYOUTUBE"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_youtube"
+                        android:padding="8dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:tint="@color/linkImageAbout"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="25dp"
-                android:layout_marginTop="25dp"
-                android:textSize="12sp"
-                android:text="@string/message_app_description"
-                android:textColor="@android:color/darker_gray"/>
-
-            <View
-                android:id="@+id/divider8"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="25dp"
-                android:background="?android:attr/listDivider" />
-
-            <TextView
-                android:id="@+id/textAppNameDonate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="28sp"
-                android:background="@android:color/transparent"
-                android:textColor="@color/title_remove"
-                android:textStyle="bold"
-                android:text="@string/title_donate"
-                android:gravity="left"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="25dp"
-                app:layout_scrollFlags="scroll|enterAlwaysCollapsed"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="12sp"
-                android:text="@string/message_donate"
-                android:textColor="@android:color/darker_gray"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listAboutApp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
-            <Button
-                android:id="@+id/buttonSourceCode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_source_code"
-                android:backgroundTint="@color/colorAccent"
-                app:backgroundTint="@color/colorAccent"
-                android:stateListAnimator="@null"
-                android:textColor="@color/buttonTextColor"
-                android:textSize="12sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="25dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginBottom="15dp"/>
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 
@@ -159,6 +173,7 @@
         android:textStyle="normal"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
         android:textColor="@android:color/darker_gray"/>
 
-</LinearLayout>
+</RelativeLayout>

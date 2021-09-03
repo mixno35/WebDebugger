@@ -166,7 +166,7 @@ public class SearchEngineOtherActivity extends AppCompatActivity {
                 editSearch.setEnabled(false);
                 buttonGo.setEnabled(false);
 
-                layoutOther.animate().alpha(0.3f).setDuration(DataAnim.DURATION_ANIM).start();
+                layoutOther.animate().alpha(0f).setDuration(DataAnim.DURATION_ANIM).start();
             }
         });
     }

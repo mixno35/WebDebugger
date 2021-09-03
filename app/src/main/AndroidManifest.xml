@@ -72,16 +72,19 @@
             android:configChanges="orientation|screenSize|locale"/>
         <activity
             android:name="com.mixno.web_debugger.FeedbackActivity"
+            android:theme="@style/AppThemeMaterialComponents"
             android:label="@string/title_feedback"
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize|locale"/>
         <activity
             android:name="com.mixno.web_debugger.HelpActivity"
+            android:theme="@style/AppThemeMaterialComponents"
             android:label="@string/title_help"
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize|locale"/>
         <activity
             android:name="com.mixno.web_debugger.AboutAppActivity"
+            android:theme="@style/AppThemeMaterialComponents"
             android:label="@string/title_about_app"
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize|locale"/>
@@ -92,6 +95,7 @@
             android:configChanges="orientation|screenSize|locale"/>
         <activity
             android:name="com.mixno.web_debugger.HistoryActivity"
+            android:theme="@style/AppThemeMaterialComponents"
             android:label="@string/title_back_history"
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize|locale"/>
@@ -102,6 +106,7 @@
             android:configChanges="orientation|screenSize|locale"/>
         <activity
             android:name="com.mixno.web_debugger.ClearDataActivity"
+            android:theme="@style/AppThemeMaterialComponents"
             android:label="@string/title_clear_data"
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize|locale"/>
@@ -130,6 +135,16 @@
         <activity
             android:name="com.mixno.web_debugger.addons.StoreAddonsActivity"
             android:label="@string/action_store_javascript"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.DonateActivity"
+            android:label="@string/action_support_project"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize|locale"/>
+        <activity
+            android:name="com.mixno.web_debugger.WhoisActivity"
+            android:label="@string/action_whois_domain"
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize|locale"/>
     </application>

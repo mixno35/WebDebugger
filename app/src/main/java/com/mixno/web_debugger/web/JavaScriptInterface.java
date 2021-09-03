@@ -31,4 +31,9 @@ public class JavaScriptInterface {
     public void toast(String text) {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
+
+    @JavascriptInterface
+    public void getThemeColorSite(String color) {
+        new MainActivity().setThemeColorApp(context, color, color);
+    }
 }

@@ -8,6 +8,9 @@
     <string name="hint_cookie_name">Name</string>
     <string name="hint_cookie_value">Value</string>
     <string name="hint_no_content">No data.</string>
+    <string name="hint_other_search_engine_home">Home page (https://domain.com/search)</string>
+    <string name="hint_other_search_engine_search">Search page (https://domain.com/search?s=%20)</string>
+    <string name="hint_enter_domain_whois">Enter domain or IP (domain.com / 127.0.0.1)</string>
 
     <string name="hint_error_search_engine_other_empty">This field cannot be empty!</string>
     <string name="hint_error_search_engine_other_search_20">This field must contain the value \"%20\"!</string>
@@ -85,6 +88,7 @@
     <string name="action_add_search_engine_other">Save</string>
     <string name="action_javascript_store_online">Online</string>
     <string name="action_javascript_store_installed">Installed</string>
+    <string name="action_support_project">Support project</string>
 
     <string name="action_menu_open">Open</string>
     <string name="action_menu_copy">Copy</string>
@@ -132,7 +136,7 @@
     <string name="message_app_description">The \"Element Inspector\" application is designed to inspect your site or a third-party site to identify errors and vulnerabilities. The application is not responsible for the theft of someone else\'s code and its components. The application is designed for easy testing of sites (in particular mobile). Without access to a PC, you can example any site on your smartphone!</string>
     <string name="message_confirm_action_send_source_to_home_screen">Are you sure want to push these changes to you home screen?</string>
     <string name="message_what_news"></string>
-    <string name="message_information_dev">Hey! This application is absolutely free and does not contain ads, everything is for you! But you donating for new updating the project or leave good feedback in the App Store. Thank you for downloading the app!</string>
+    <string name="message_information_dev">Hey! This application is absolutely free and does not contain ads, everything is for you! But you donating for new updating the project or leave good feedback in the App Store. Thank you for downloading the app!\n\n*After completing any action - you will no longer see this message.*</string>
     <string name="message_js_create">Make JS source code, for fast run code!</string>
     <string name="message_donate">By coffee, developer, and I will continue to support this project for you and delight you with new updates!</string>
     <string name="message_cookie_remove">You are remove cookie \"%1s\"?</string>
@@ -142,6 +146,9 @@
     <string name="message_clear_data_session">Clear all sessions - many pages/sites will have to recreate them, and all passwords and authorized accounts will be reset.</string>
     <string name="message_clear_data_history">Clear all history - the entire visit history will be deleted. You will no longer be able to see which pages you visited.</string>
     <string name="message_search_engine_other">Here you can add your own or third-party search engine.</string>
+    <string name="message_support_project">You can support the project as a hard coin or just warm words. Any of your support will be a great motivation to continue this project.</string>
+    <string name="message_no_data_certificate">No data</string>
+    <string name="message_whois_error">If an error appears when displaying \"Whois\" try changing the host name of the requested site. Foe example: from ***.domain.com to domain.com (Only one domain).</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Yandex</string>

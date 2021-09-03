@@ -15,10 +15,14 @@
     <color name="cardViewBackground">#34FFFFFF</color>
     <color name="bottomMenu">#000000</color>
     <color name="buttonTextColor">#000000</color>
+    <color name="buttonColor">#969AEC</color>
+    <color name="colorActionBar">#000000</color>
+    <color name="linkImageAbout">#9FFFFFFF</color>
 
     <color name="alertBackground">#1A1A1A</color>
     <color name="alertOverlay">#37FFFFFF</color>
     <color name="alertAccent">#969AEC</color>
+    <color name="alertPrimary">#000000</color>
 
     <color name="consoleMessage">#D5FFFFFF</color>
     <color name="consoleSourceID">#1789F0</color>

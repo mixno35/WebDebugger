@@ -1,6 +1,7 @@
 package com.mixno.web_debugger.app;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -14,11 +15,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.Toast;
 
@@ -37,6 +40,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.InputStream;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -44,6 +48,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Data {
 
@@ -52,7 +58,8 @@ public class Data {
     private static String ALLOWED_CHARACTERS = "0123456789qwertyuiopasdfghjklzxcvbnm";
     private static String RESULT_RANDOM = "";
 
-    public static String URL_STORE_ADDONS_FILE = "https://elementinspector.000webhostapp.com/store.php";
+    public static String URL_STORE_ADDONS_FILE = "https://elementinspector.000webhostapp.com/api/store.php";
+    public static String URL_WHOIS = "https://elementinspector.000webhostapp.com/api/whois.php?domain=";
 
     public static String PATH_HOME = Environment.getExternalStorageDirectory().getPath() + File.separator + ".wd";
     public static String PATH_HISTORY = Environment.getExternalStorageDirectory().getPath() + File.separator + ".wd" + File.separator + ".history";
@@ -144,6 +151,17 @@ public class Data {
         return RESULT_RANDOM;
     }
 
+    public static String getRootDomain(String url) {
+        String host = url;
+        try {
+            host = new URL(url).getHost();
+        } catch (Exception e) {}
+
+        String[] domainKeys = host.split("\\.");
+        int sz = domainKeys.length;
+        return domainKeys.toString();
+    }
+
     public static int getRandomNum(int min, int max) {
         return new Random().nextInt((max - min) + 1) + min;
     }
@@ -154,6 +172,21 @@ public class Data {
                 deleteDF(path2);
 
         path.delete();
+    }
+
+    public static boolean isColorHex(String hex) {
+        Pattern colorPattern = Pattern.compile("#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})");
+        Matcher m = colorPattern.matcher(hex);
+        return m.matches();
+    }
+
+    public boolean isColorDark(int color) {
+        double darkness = 1-(0.299*Color.red(color) + 0.587*Color.green(color) + 0.114*Color.blue(color))/255;
+        if (darkness < 0.5) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public static boolean write(File path, String text) {
@@ -256,6 +289,21 @@ public class Data {
             });
             final AlertDialog alert = builder.create();
             alert.show();
+        }
+    }
+
+    public static void setLightStatusBar(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int flags = activity.getWindow().getDecorView().getSystemUiVisibility();  // get current flag
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR; // add LIGHT_STATUS_BAR to flag
+            activity.getWindow().getDecorView().setSystemUiVisibility(flags);
+        }
+    }
+    public static void clearLightStatusBar(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int flags = activity.getWindow().getDecorView().getSystemUiVisibility(); // get current flag
+            flags = flags ^ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR; // use XOR here for remove LIGHT_STATUS_BAR from flags
+            activity.getWindow().getDecorView().setSystemUiVisibility(flags);
         }
     }
 

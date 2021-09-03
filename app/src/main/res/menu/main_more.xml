@@ -30,6 +30,6 @@
 <!--    <item android:id="@+id/actionFeedback" android:title="@string/action_feedback_and_help"/>-->
 <!--    <item android:id="@+id/actionHelp" android:title="@string/action_help"/>-->
 <!--    <item android:id="@+id/actionDonate" android:title="@string/action_donate"/>-->
-    <item android:id="@+id/actionCookieManager" android:title="@string/action_cookie_manager"/>
+    <item android:id="@+id/actionCookieManager" android:title="@string/action_cookie_manager" android:visible="false"/>
     <item android:id="@+id/actionExit" android:title="@string/action_exit"/>
 </menu>

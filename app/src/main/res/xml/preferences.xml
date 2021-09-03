@@ -71,11 +71,11 @@
 <!--            android:defaultValue="true"-->
 <!--            android:key="keyFileUrls"-->
 <!--            android:title="@string/preference_access_from_file_urls" />-->
-<!--        <SwitchPreference-->
-<!--            android:defaultValue="false"-->
-<!--            android:key="keyThemeColor"-->
-<!--            android:title="@string/preference_theme_color"-->
-<!--            android:summary="@string/preference_summary_theme_color"/>-->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="keyThemeColor"
+            android:title="@string/preference_theme_color"
+            android:summary="@string/preference_summary_theme_color"/>
 <!--        <PreferenceScreen-->
 <!--            android:key="keyLocalhost"-->
 <!--            android:title="@string/preference_localhost"/>-->

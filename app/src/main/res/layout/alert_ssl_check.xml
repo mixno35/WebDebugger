@@ -134,6 +134,51 @@
 
 
 
+        <!-- COOKIES -->
+
+        <View
+            android:id="@+id/divider10"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/itemLinCookies"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textColor="@color/title_remove"
+                    android:text="@string/action_cookie_manager" />
+
+                <ImageView
+                    android:id="@+id/imageCookies"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:alpha="0.5"
+                    android:src="@drawable/ic_arrow_wh_black"
+                    android:tint="@color/title_remove" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
         <!-- WHOIS -->
 
         <View
@@ -172,27 +217,6 @@
                     android:alpha="0.5"
                     android:src="@drawable/ic_arrow_wh_black"
                     android:tint="@color/title_remove" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/contentLinWhois"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="15dp"
-                android:animateLayoutChanges="true"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textMessageWhois"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:lineSpacingExtra="4dp"
-                    android:textColor="@color/title_remove"
-                    android:text="TextView" />
 
             </LinearLayout>
 

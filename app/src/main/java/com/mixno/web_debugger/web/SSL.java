@@ -2,9 +2,11 @@ package com.mixno.web_debugger.web;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Handler;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,7 +14,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.mixno.web_debugger.CookieManagerActivity;
 import com.mixno.web_debugger.R;
+import com.mixno.web_debugger.WhoisActivity;
 import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.widget.WebEI;
 import com.squareup.picasso.MemoryPolicy;
@@ -21,6 +25,7 @@ import com.squareup.picasso.Picasso;
 import java.io.DataInputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.CookieManager;
 import java.net.Socket;
 import java.net.URL;
 
@@ -85,9 +90,11 @@ public class SSL {
 
         // Whois
         final LinearLayout itemLinWhois = inflate.findViewById(R.id.itemLinWhois);
-        final LinearLayout contentLinWhois = inflate.findViewById(R.id.contentLinWhois);
         final ImageView imageWhois = inflate.findViewById(R.id.imageWhois);
-        final TextView textMessageWhois = inflate.findViewById(R.id.textMessageWhois);
+
+        // Cookies
+        final LinearLayout itemLinCookies = inflate.findViewById(R.id.itemLinCookies);
+        final ImageView imageCookies = inflate.findViewById(R.id.imageCookies);
 
         try {
             Picasso.with(context)
@@ -133,7 +140,15 @@ public class SSL {
         textMessageCertificate.post(new Runnable() {
             @Override
             public void run() {
-                textMessageCertificate.setText(Html.fromHtml(getCertificate(context, web)));
+                String certificate = getCertificate(context, web);
+                if (certificate.trim().isEmpty()) {
+                    textMessageCertificate.setText(context.getString(R.string.message_no_data_certificate));
+                    try {
+                        textMessageCertificate.setGravity(Gravity.CENTER);
+                    } catch (Exception e) {}
+                } else {
+                    textMessageCertificate.setText(Html.fromHtml(certificate));
+                }
             }
         });
 
@@ -167,52 +182,17 @@ public class SSL {
             }
         });
 
-
-        //Whois
-        ((Activity)context).runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                contentLinWhois.setVisibility(View.GONE);
-                contentLinWhois.setAlpha(0f);
-                imageWhois.animate().rotation(0f).setDuration(durationAnim).start();
-            }
-        });
-
-        textMessageWhois.post(new Runnable() {
-            @Override
-            public void run() {
-//                textMessageWhois.setText(getWhois(host, "br"));
-            }
-        });
-
         itemLinWhois.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (contentLinWhois.getVisibility() == View.GONE) {
-//                    ((Activity)context).runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            contentLinWhois.setVisibility(View.VISIBLE);
-//                            contentLinWhois.animate().alpha(1f).setDuration(durationAnim).start();
-//                            imageWhois.animate().rotation(90f).setDuration(durationAnim).start();
-//                        }
-//                    });
-//                } else {
-//                    ((Activity)context).runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            new Handler().postDelayed(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    contentLinWhois.setVisibility(View.GONE);
-//                                }
-//                            }, durationAnim);
-//                            contentLinWhois.animate().alpha(0f).setDuration(durationAnim).start();
-//                            imageWhois.animate().rotation(0f).setDuration(durationAnim).start();
-//                        }
-//                    });
-//                }
-                new Whois(context, host);
+//                new Whois(context, host);
+                context.startActivity(new Intent(context, WhoisActivity.class).putExtra("url", url));
+            }
+        });
+        itemLinCookies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, CookieManagerActivity.class).putExtra("url", url));
             }
         });
 

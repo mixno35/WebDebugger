@@ -8,6 +8,9 @@
     <string name="hint_cookie_name">Название</string>
     <string name="hint_cookie_value">Значение</string>
     <string name="hint_no_content">Здесь ничего нет.</string>
+    <string name="hint_other_search_engine_home">Главная страница (https://domain.com/search)</string>
+    <string name="hint_other_search_engine_search">Страница поиска (https://domain.com/search?s=%20)</string>
+    <string name="hint_enter_domain_whois">Введите домен или IP (domain.com / 127.0.0.1)</string>
 
     <string name="hint_error_search_engine_other_empty">Это поле не может быть пустым!</string>
     <string name="hint_error_search_engine_other_search_20">Это поле должно содержать значение \"%20\"!</string>
@@ -85,6 +88,7 @@
     <string name="action_add_search_engine_other">Сохранить</string>
     <string name="action_javascript_store_online">Онлайн</string>
     <string name="action_javascript_store_installed">Установленные</string>
+    <string name="action_support_project">Поддержать проект</string>
 
     <string name="action_menu_open">Открыть</string>
     <string name="action_menu_copy">Копировать</string>
@@ -129,10 +133,10 @@
     <string name="message_manifest_addons"><![CDATA[<b>ID</b>]]> - идентификатор для дополнения (рекомендую использовать только цифры)<![CDATA[<br>]]><![CDATA[<b>NAME</b>]]> - имя для дополнения<![CDATA[<br>]]><![CDATA[<b>DESCRIPTION</b>]]> - краткое описание дополнения<![CDATA[<br>]]><![CDATA[<b>ICON</b>]]> - используйте файл для иконки, пример: \"logo.png\" или \"icons/logo.png\"<![CDATA[<br>]]><![CDATA[<b>MAIN_SOURCE</b>]]> - используйте файл js или код js, избегайте символа \"<![CDATA[<br>]]><![CDATA[<b>VERSION</b>]]> - версия для дополнения<![CDATA[<br>]]><![CDATA[<b>VERSION_CODE</b>]]> - версия кода, используйте только цифры</string>
     <string name="message_requesr_help">Каждый запрос должен быть написан с новой строки и выглядеть так: <![CDATA[<b>req=***</b>]]></string>
     <string name="message_poll_hidden">Опрос был скрыт</string>
-    <string name="message_app_description">Приложение \"Element Inspector\" созданно для инспектирования вашего или стороннего сайта, для выявления ошибок или уязвимостей. Приложение не несёт характер - украсть чужой код и его составляющее. Приложение преднозначено для удобного тестирования сайтов (в частности мобильных). Не имея доступа к ПК - Вы можете исследовать любой сайт на смартфоне или планшете!</string>
+    <string name="message_app_description">Приложение \"Element Inspector\" созданно для инспектирования вашего или стороннего сайта, для выявления ошибок или уязвимостей. Приложение не несёт характер: украсть чужой код и его составляющее. Приложение преднозначено для удобного тестирования сайтов (в частности мобильных). Не имея доступа к ПК - Вы можете исследовать любой сайт на смартфоне или планшете!</string>
     <string name="message_confirm_action_send_source_to_home_screen">Вы действительно хотите отправить эти изменения на главный экран?</string>
     <string name="message_what_news"></string>
-    <string name="message_information_dev">Привет! Это приложение абсолютно бесплатное и не содержит рекламы - всё для Вас! Но Вы всегда можете пожертвовать на развитие проекта или оставить хороший отзыв в Магазине Приложений. Спасибо, что скачали приложение!</string>
+    <string name="message_information_dev">Привет! Это приложение абсолютно бесплатное и не содержит рекламы - всё для Вас! Но Вы всегда можете поддержать этот проект или оставить хороший отзыв в Магазине Приложений. Спасибо, что скачали приложение!\n\n*Выполнив любое дейсвтвие - Вы больше не увидите это сообщение.*</string>
     <string name="message_js_create">Создайте свой сторонний JS код, для быстрого его запуска на любом сайте!</string>
     <string name="message_donate">Купите кофе разработчику, и я буду дальше бесплатно поддерживать этот проект для Вас и радовать новыми обновлениями!</string>
     <string name="message_cookie_remove">Вы действительно хотите удалить этот cookie \"%1s\"?</string>
@@ -142,6 +146,9 @@
     <string name="message_clear_data_session">Очистить все сессии/сеансы - многим страницам/сайтам придется их пересоздать, также (возможно) будут сброшены все временные пароли и авторизованные аккаунты.</string>
     <string name="message_clear_data_history">Очистить всю историю посещения - будет удалена вся история посещения. Вы больше не сможете увидеть какие страницы посещали.</string>
     <string name="message_search_engine_other">Здесь вы можете добавить свою или стороннюю поисковую систему.</string>
+    <string name="message_support_project">Поддержать проект можно звонкой монетой или просто теплыми словами. Любая ваша поддержка будет большой мотивацией продолжать этот проект.</string>
+    <string name="message_no_data_certificate">Нет данных о сертификате</string>
+    <string name="message_whois_error">Если появилась ошибка при отображении \"Whois\", попробуйте изменить хост запрашиваемого сайта. Например: с ***.domain.com на domain.com (Оставьте лишь чистый домен).</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Яндекс</string>

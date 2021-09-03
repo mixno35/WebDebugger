@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimary">#1789F0</color>
     <color name="colorPrimaryDark">#F3F3F3</color>
     <color name="colorAccent">#1789F0</color>
     <color name="colorControlNormal">#000000</color>
@@ -15,10 +15,14 @@
     <color name="cardViewBackground">#14000000</color>
     <color name="bottomMenu">#FFFFFF</color>
     <color name="buttonTextColor">#FFFFFF</color>
+    <color name="buttonColor">#1789F0</color>
+    <color name="colorActionBar">#FFFFFF</color>
+    <color name="linkImageAbout">#919191</color>
 
     <color name="alertBackground">#FFFFFF</color>
     <color name="alertOverlay">#37000000</color>
     <color name="alertAccent">#1789F0</color>
+    <color name="alertPrimary">#FFFFFF</color>
 
     <color name="consoleMessage">#949494</color>
     <color name="consoleSourceID">#1789F0</color>

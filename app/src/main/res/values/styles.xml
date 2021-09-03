@@ -16,6 +16,22 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
     </style>
 
+    <!-- Base application theme material components. -->
+    <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/navigationBarColor</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="popupMenuStyle">@style/popupMenu</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+    </style>
+
     <!-- Base debug theme. -->
     <style name="AppThemeDebug" parent="Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
@@ -30,13 +46,13 @@
 <!--        <item name="buttonBarNegativeButtonStyle">@style/AlertButtonStyle</item>-->
 <!--        <item name="buttonBarNeutralButtonStyle">@style/AlertButtonStyle</item>-->
 <!--        <item name="buttonBarPositiveButtonStyle">@style/AlertButtonStyle</item>-->
-        <item name="colorPrimary">@color/alertAccent</item>
+        <item name="colorPrimary">@color/alertPrimary</item>
         <item name="colorAccent">@color/alertAccent</item>
         <item name="android:windowContentOverlay">@color/alertOverlay</item>
 <!--        <item name="android:windowBackground">@drawable/rounded_alert</item>-->
     </style>
     <style name="AlertDialogThemeSSL" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorPrimary">@color/alertAccent</item>
+        <item name="colorPrimary">@color/alertPrimary</item>
         <item name="colorAccent">@color/alertAccent</item>
         <item name="android:windowBackground">@color/alertBackground</item>
         <item name="android:windowContentOverlay">@color/alertOverlay</item>

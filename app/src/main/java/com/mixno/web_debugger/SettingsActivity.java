@@ -14,6 +14,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
+    public static boolean RUNNED_HISTORY = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Data.theme(this);
@@ -36,5 +38,14 @@ public class SettingsActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction().add(R.id.frameSettings, new SettingsFragment()).commit();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        if (RUNNED_HISTORY) {
+            RUNNED_HISTORY = false;
+            onBackPressed();
+        }
+        super.onStart();
     }
 }

@@ -52,6 +52,8 @@ public class CookieManagerActivity extends AppCompatActivity {
 
     private CookieManager manager;
 
+    private AlertDialog dialogSetCookie;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Data.theme(this);
@@ -64,6 +66,10 @@ public class CookieManagerActivity extends AppCompatActivity {
         noContent = findViewById(R.id.noContent);
 
         url = MainActivity.mWeb.getUrl();
+
+        try {
+            url = getIntent().getStringExtra("url");
+        } catch (Exception e) {}
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -219,12 +225,13 @@ public class CookieManagerActivity extends AppCompatActivity {
                         @Override
                         public void onReceiveValue(Boolean aBoolean) {
                             if (aBoolean) {
-
+                                dialogSetCookie.dismiss();
                             }
                         }
                     });
                 } else {
                     manager.setCookie(urlBase, cookieString);
+                    dialogSetCookie.dismiss();
                 }
                 try {
                     loadCookies();
@@ -238,7 +245,7 @@ public class CookieManagerActivity extends AppCompatActivity {
         builder.setTitle(getString(R.string.action_cookie_new));
         builder.setView(view);
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        dialogSetCookie = builder.create();
+        dialogSetCookie.show();
     }
 }

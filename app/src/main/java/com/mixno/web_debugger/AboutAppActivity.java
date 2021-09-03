@@ -1,5 +1,6 @@
 package com.mixno.web_debugger;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,12 +27,9 @@ public class AboutAppActivity extends AppCompatActivity {
     // private Toolbar toolbar;
     private ImageView imageIcon;
     private TextView textAppName, textAppVersion;
-    private Button buttonSourceCode;
-    private RecyclerView listAboutApp;
-    private RecyclerView.Adapter listAdapter;
-    private RecyclerView.LayoutManager listLayoutManager;
+    private Button buttonSourceCode, buttonSupportProject;
 
-    private ArrayList<AboutAppModel> list = new ArrayList<>();
+    private ImageView actionVK, actionTELEGRAM, actionINSTAGRAM, actionYOUTUBE;
 
     private PackageInfo pInfo;
 
@@ -45,8 +43,13 @@ public class AboutAppActivity extends AppCompatActivity {
         imageIcon = findViewById(R.id.imageApp);
         textAppName = findViewById(R.id.textAppName);
         buttonSourceCode = findViewById(R.id.buttonSourceCode);
+        buttonSupportProject = findViewById(R.id.buttonSupportProject);
         textAppVersion = findViewById(R.id.textAppVersion);
-        listAboutApp = findViewById(R.id.listAboutApp);
+
+        actionVK = findViewById(R.id.actionVK);
+        actionTELEGRAM = findViewById(R.id.actionTELEGRAM);
+        actionINSTAGRAM = findViewById(R.id.actionINSTAGRAM);
+        actionYOUTUBE = findViewById(R.id.actionYOUTUBE);
 
         try {
             pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -64,6 +67,39 @@ public class AboutAppActivity extends AppCompatActivity {
             });
         } */
 
+        actionVK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Data.openUrl(AboutAppActivity.this, "https://vk.com/mixno35");
+                } catch (Exception e) {}
+            }
+        });
+        actionTELEGRAM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Data.openUrl(AboutAppActivity.this, "https://t.me/mixno35");
+                } catch (Exception e) {}
+            }
+        });
+        actionINSTAGRAM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Data.openUrl(AboutAppActivity.this, "https://instagram.com/mixno35");
+                } catch (Exception e) {}
+            }
+        });
+        actionYOUTUBE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Data.openUrl(AboutAppActivity.this, "https://youtube.com/channel/UCjtgBPQ3Vzx2qEubvD_mOTQ");
+                } catch (Exception e) {}
+            }
+        });
+
         buttonSourceCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,14 +111,13 @@ public class AboutAppActivity extends AppCompatActivity {
             }
         });
 
-        if (imageIcon != null) {
-            imageIcon.setImageResource(R.mipmap.ic_launcher);
-            try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    imageIcon.setClipToOutline(true);
-                }
-            } catch (Exception e) {}
-        }
+        buttonSupportProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AboutAppActivity.this, DonateActivity.class));
+            }
+        });
+
         if (textAppName != null) {
             textAppName.post(new Runnable() {
                 @Override
@@ -99,20 +134,5 @@ public class AboutAppActivity extends AppCompatActivity {
                 }
             });
         }
-
-        list.add(new AboutAppModel("WebMoney - WMZ", "Z178194978131", null, true, AboutAppModel.TYPE_COPY));
-        list.add(new AboutAppModel("Payeer", "P1048066896", null, true, AboutAppModel.TYPE_COPY));
-        list.add(new AboutAppModel("Bitcoin", "3BchmRqDfSxXH7rXaMdUoEkt87UsFTPKc9", null, true, AboutAppModel.TYPE_COPY));
-        list.add(new AboutAppModel(getString(R.string.title_say_thanks), "Telegram", "https://t.me/mixno35", true, AboutAppModel.TYPE_LINK));
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                listLayoutManager = new LinearLayoutManager(getApplicationContext());
-                listAboutApp.setLayoutManager(listLayoutManager);
-                listAdapter = new AboutAppAdapter(list, getApplicationContext());
-                listAboutApp.setAdapter(listAdapter);
-            }
-        }, 300);
     }
 }

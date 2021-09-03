@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import androidx.appcompat.app.AlertDialog;
 
 import com.mixno.web_debugger.AboutAppActivity;
+import com.mixno.web_debugger.DonateActivity;
 import com.mixno.web_debugger.R;
 import com.mixno.web_debugger.app.Data;
 
@@ -29,11 +30,11 @@ public class RateAppDialog {
                 dialog.dismiss();
             }
         });
-        builder.setNegativeButton(context.getString(R.string.action_donate), new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(context.getString(R.string.action_support_project), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 sp.edit().putBoolean("rate", true).apply();
-                context.startActivity(new Intent(context, AboutAppActivity.class));
+                context.startActivity(new Intent(context, DonateActivity.class));
             }
         });
         builder.setNeutralButton(context.getString(R.string.action_close), new DialogInterface.OnClickListener() {

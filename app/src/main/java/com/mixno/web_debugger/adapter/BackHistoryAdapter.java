@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Handler;
 
 import com.mixno.web_debugger.R;
+import com.mixno.web_debugger.SettingsActivity;
 import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.app.DataAnim;
 import com.mixno.web_debugger.model.BackHistoryModel;
@@ -90,6 +91,7 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
             @Override
             public void onClick(View v) {
                 web.loadUrl(url);
+                new SettingsActivity().RUNNED_HISTORY = true;
                 ((Activity)context).finish();
             }
         });
@@ -147,6 +149,7 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
                     case 0: // Open
                         dialog.dismiss();
                         web.loadUrl(url);
+                        new SettingsActivity().RUNNED_HISTORY = true;
                         ((Activity)context).finish();
                         break;
                     case 1: // Share
