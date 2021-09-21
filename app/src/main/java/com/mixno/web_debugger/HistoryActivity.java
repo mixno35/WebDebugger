@@ -1,6 +1,8 @@
 package com.mixno.web_debugger;
 
 import android.Manifest;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -43,7 +46,7 @@ public class HistoryActivity extends AppCompatActivity {
     private LinearLayout noContent;
 
     private RecyclerView listHistory;
-    private RecyclerView.Adapter listAdapter;
+    private BackHistoryAdapter listAdapter;
     private RecyclerView.LayoutManager listLayoutManager;
 
     private String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
@@ -195,6 +198,23 @@ public class HistoryActivity extends AppCompatActivity {
         mMenu = menu;
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.history, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.actionSearch);
+
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                listAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
         return true;
     }
 

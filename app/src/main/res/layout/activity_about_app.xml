@@ -52,19 +52,94 @@
                         android:fontFamily="@font/ds_font_extrabold"
                         app:layout_scrollFlags="scroll|enterAlwaysCollapsed"/>
 
-                    <TextView
-                        android:id="@+id/textAppVersion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="0.0.0"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginLeft="25dp"
-                        android:textColor="@color/message_remove"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="240dp">
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/rounded_about_app_bobble"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/textAppVersion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="0.0.0"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/title_remove"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_about_app_version"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/rounded_about_app_bobble"
+                        android:gravity="center"
+                        android:layout_marginLeft="25dp">
+
+                        <TextView
+                            android:id="@+id/textAppVersionCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="0"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/title_remove"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_about_app_version_code"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/rounded_about_app_bobble"
+                        android:gravity="center"
+                        android:layout_marginLeft="25dp">
+
+                        <TextView
+                            android:id="@+id/textAppLaunched"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="0"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/title_remove"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_about_app_launched"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -74,7 +149,7 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:layout_marginBottom="25dp"
-                    android:layout_marginTop="210dp"
+                    android:layout_marginTop="40dp"
                     android:textSize="13sp"
                     android:text="@string/message_app_description"
                     android:textColor="@android:color/darker_gray"/>
@@ -93,8 +168,7 @@
                     android:paddingRight="20dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginRight="25dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginLeft="25dp"/>
 
                 <Button
                     android:id="@+id/buttonSourceCode"
@@ -110,14 +184,31 @@
                     android:paddingRight="20dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginRight="25dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginBottom="15dp"/>
+                    android:layout_marginLeft="25dp"/>
+
+                <Button
+                    android:id="@+id/buttonUnlockHideFunctions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_unlock_hide_functions"
+                    android:backgroundTint="@color/colorAccent"
+                    app:backgroundTint="@color/colorAccent"
+                    android:stateListAnimator="@null"
+                    android:textColor="@color/buttonTextColor"
+                    android:textSize="12sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="25dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="25dp">
 
                     <ImageView
                         android:id="@+id/actionVK"

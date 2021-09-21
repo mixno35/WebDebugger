@@ -4,6 +4,7 @@
 
     <string name="hint_search">Enter url or request</string>
     <string name="hint_write_js">Write javascript source</string>
+    <string name="hint_write_html">Write html</string>
     <string name="hint_find_to_page">Enter text</string>
     <string name="hint_cookie_name">Name</string>
     <string name="hint_cookie_value">Value</string>
@@ -89,6 +90,13 @@
     <string name="action_javascript_store_online">Online</string>
     <string name="action_javascript_store_installed">Installed</string>
     <string name="action_support_project">Support project</string>
+    <string name="action_load_html">Load HTML</string>
+    <string name="action_load_html_replace">Replace</string>
+    <string name="action_load_html_append">Append</string>
+    <string name="action_unlock_hide_functions">Unlock hide functions</string>
+    <string name="action_unlock_hide_function_0">Locked</string>
+    <string name="action_unlock_hide_function_1">Unlocked</string>
+    <string name="action_search">Search</string>
 
     <string name="action_menu_open">Open</string>
     <string name="action_menu_copy">Copy</string>
@@ -149,6 +157,8 @@
     <string name="message_support_project">You can support the project as a hard coin or just warm words. Any of your support will be a great motivation to continue this project.</string>
     <string name="message_no_data_certificate">No data</string>
     <string name="message_whois_error">If an error appears when displaying \"Whois\" try changing the host name of the requested site. Foe example: from ***.domain.com to domain.com (Only one domain).</string>
+    <string name="message_select_format_cache_webview">Select the load page caching format.</string>
+    <string name="message_select_format_load_html">Select formal load HTML.</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Yandex</string>
@@ -207,6 +217,10 @@
     <string name="title_clear_data_history">Clear history</string>
     <string name="title_search_engine">Search engine</string>
     <string name="title_search_engine_other">Search engine other</string>
+    <string name="title_cache_webview">Cache page</string>
+    <string name="title_about_app_version">Version</string>
+    <string name="title_about_app_version_code">Code</string>
+    <string name="title_about_app_launched">Launched</string>
 
     <string name="ssl_error">SSl Certificate error.</string>
     <string name="ssl_error_untrusted">The certificate authority is not trusted.</string>
@@ -243,6 +257,11 @@
     <string name="feedback_email_invalid">Email invalid</string>
     <string name="feedback_error_send">No email client installed.</string>
     <string name="feedback_choose_email_client">Choose email client</string>
+
+    <string name="cache_mode_default">Default</string>
+    <string name="cache_mode_no_cache">No cache</string>
+    <string name="cache_mode_cache_only">Cache only</string>
+    <string name="cache_mode_cache_else_network">Cache else network</string>
 
     <string name="tooltip_console_clear">Clear console</string>
     <string name="tooltip_console_refresh">Refresh list console</string>
@@ -289,6 +308,7 @@
     <string name="preference_save_history">Save history</string>
     <string name="preference_fake_reload_page_web">Fake reload page</string>
     <string name="preference_clear_data">Clear data</string>
+    <string name="preference_cache_webview">Cache page</string>
 
     <string name="preference_summary_save_session">Remember last open link (excluding tabs)</string>
     <string name="preference_summary_theme_color">Adapt the colors of the application to match the color of the site</string>

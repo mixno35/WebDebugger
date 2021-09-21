@@ -37,9 +37,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:elevation="4dp"
-                android:background="@color/windowBackground">
+                android:paddingRight="20dp">
 
                 <RadioGroup
                     android:layout_width="match_parent"

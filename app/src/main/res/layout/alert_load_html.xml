@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/action_load_html"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="21sp"
+        android:id="@+id/menucodeTextView1"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@id/menucodeTextView1"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:ems="10"
+                android:hint="@string/hint_write_html"
+                android:textSize="13sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/editCode"/>
+
+        </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?dividerHorizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <RadioButton
+                android:id="@+id/htmlReplace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_load_html_replace"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/htmlAppend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_load_html_append"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
+            android:text="@string/action_save"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:src="@drawable/ic_alert_close"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
+        android:padding="10dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:tint="@color/colorControlNormal"
+        android:id="@+id/ivClose"/>
+
+</RelativeLayout>
+

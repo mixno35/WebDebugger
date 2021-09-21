@@ -5,6 +5,7 @@
         <menu>
             <item android:id="@+id/actionDevTools" android:title="@string/action_dev_tools" android:visible="false" android:enabled="false"/>
             <item android:id="@+id/actionConsole" android:title="@string/action_console"/>
+            <item android:id="@+id/actionLoadHTML" android:title="@string/action_load_html"/>
 <!--            <item android:id="@+id/actionConsoleEruda" android:title="@string/action_console_eruda"/>-->
 <!--            <item android:id="@+id/actionConsoleFireBug" android:title="@string/action_console_firebug"/>-->
             <item android:id="@+id/actionContenteditable" android:title="@string/action_contenteditable" android:checkable="true"/>

@@ -91,6 +91,8 @@ public class WebEI extends WebView {
         this.getSettings().setGeolocationDatabasePath(getContext().getFilesDir().getPath());
         this.getSettings().setAllowFileAccessFromFileURLs(true);
         this.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        this.getSettings().setAppCacheEnabled(shared.getBoolean("keyCacheWebViewBool", true));
+        this.getSettings().setAppCachePath(getContext().getCacheDir().getPath());
         this.setWebContentsDebuggingEnabled(shared.getBoolean("keyDebugMode", false));
         this.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -118,6 +120,20 @@ public class WebEI extends WebView {
                     WebSettingsCompat.setForceDark(this.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
                 }
                 break;
+        }
+
+        switch (shared.getString("keyCacheWebViewValue", "DEFAULT")) {
+            case "NO_CACHE":
+                this.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+                break;
+            case "CACHE_ONLY":
+                this.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ONLY);
+                break;
+            case "CACHE_ELSE_NETWORK":
+                this.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+                break;
+            default:
+                this.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         }
     }
 

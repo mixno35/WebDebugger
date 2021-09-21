@@ -48,6 +48,8 @@
 
     <color name="tint_divider_round">#C7C7C7</color>
 
+    <color name="aboutAppBobble">#E2E2E2</color>
+
     <color name="ssl_black">#000000</color>
     <color name="ssl_gray">#929292</color>
     <color name="ssl_red">#BB0000</color>

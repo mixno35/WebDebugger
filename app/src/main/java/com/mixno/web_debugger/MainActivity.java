@@ -73,6 +73,7 @@ import com.mixno.web_debugger.dialog.AddonsDialog;
 import com.mixno.web_debugger.dialog.CodeDialog;
 import com.mixno.web_debugger.dialog.CodeStyleDialog;
 import com.mixno.web_debugger.dialog.CookieManagerDialog;
+import com.mixno.web_debugger.dialog.LoadHTMLDialog;
 import com.mixno.web_debugger.dialog.RateAppDialog;
 import com.mixno.web_debugger.dialog.UserAgentDialog;
 import com.mixno.web_debugger.dialog.WelcomeDialog;
@@ -515,6 +516,9 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.actionHistoryM) {
                     // new BackHistory(MainActivity.this, mWeb, backHistoryList);
                     startActivity(new Intent(MainActivity.this, HistoryActivity.class));
+                }
+                if (item.getItemId() == R.id.actionLoadHTML) {
+                    new LoadHTMLDialog(MainActivity.this, mWeb);
                 }
                 return true;
             }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.webkit.WebViewFeature;
 
 import com.mixno.web_debugger.AboutAppActivity;
+import com.mixno.web_debugger.CacheWebViewActivity;
 import com.mixno.web_debugger.ClearDataActivity;
 import com.mixno.web_debugger.FeedbackActivity;
 import com.mixno.web_debugger.HistoryActivity;
@@ -28,6 +30,8 @@ public class SettingsFragment extends PreferenceFragment {
 
     private SharedPreferences sharedLocalhost;
     private SharedPreferences shared;
+
+    private PackageInfo packageInfo;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +51,11 @@ public class SettingsFragment extends PreferenceFragment {
 //        Preference keyRoundedDisplay = findPreference("keyRoundedDisplay");
 //        Preference keyLocalhost = findPreference("keyLocalhost");
         Preference keySearchEngineOther = findPreference("keySearchEngineOther");
+        Preference keyCacheWebView = findPreference("keyCacheWebView");
+
+        try {
+            packageInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
+        } catch (Exception e) {}
 
 //        keyRoundedDisplay.setEnabled(false);
 
@@ -100,6 +109,13 @@ public class SettingsFragment extends PreferenceFragment {
 //                return false;
 //            }
 //        });
+        keyCacheWebView.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                getActivity().startActivity(new Intent(getActivity(), CacheWebViewActivity.class));
+                return false;
+            }
+        });
         keyTheme.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -135,6 +151,18 @@ public class SettingsFragment extends PreferenceFragment {
 //        } else {
 //            keyLocalhost.setSummary(getString(R.string.action_offs));
 //        }
+
+
+
+        try {
+            keyAboutApp.setSummary("v." + packageInfo.versionName);
+        } catch (Exception e) {}
+
+        if (shared.getBoolean("keyAboutAppHideUnlocked", false)) {
+            keyAboutApp.setSummary(keyAboutApp.getSummary() + " (" + getActivity().getString(R.string.action_unlock_hide_function_1) + ")");
+        } else {
+            keyAboutApp.setSummary(keyAboutApp.getSummary() + " (" + getActivity().getString(R.string.action_unlock_hide_function_0) + ")");
+        }
     }
 
     private void alertThemeApplied() {

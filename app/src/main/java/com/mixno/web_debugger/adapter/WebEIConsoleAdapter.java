@@ -50,7 +50,13 @@ public class WebEIConsoleAdapter extends RecyclerView.Adapter<WebEIConsoleAdapte
         holder.textLinNumber.post(new Runnable() {
             @Override
             public void run() {
-                holder.textLinNumber.setText("(" + model.getType() + ") " + model.getLineNumber());
+                holder.textLinNumber.setText(String.valueOf(model.getLineNumber()));
+            }
+        });
+        holder.textUP.post(new Runnable() {
+            @Override
+            public void run() {
+                holder.textUP.setText(model.getType());
             }
         });
 
@@ -70,46 +76,46 @@ public class WebEIConsoleAdapter extends RecyclerView.Adapter<WebEIConsoleAdapte
                 }
             });
         }
-        if (model.getType() == "error") {
-            ((Activity)context).runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    holder.linMessage.setBackgroundColor(context.getResources().getColor(R.color.consoleErrorBack));
-                    holder.imageType.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.imageType.setImageResource(R.drawable.ic_console_error);
-                        }
-                    });
-                    holder.textMessage.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.textMessage.setTextColor(context.getResources().getColor(R.color.consoleError));
-                        }
-                    });
-                }
-            });
-        }
-        if (model.getType() == "warning") {
-            ((Activity)context).runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    holder.linMessage.setBackgroundColor(context.getResources().getColor(R.color.consoleWarningBack));
-                    holder.imageType.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.imageType.setImageResource(R.drawable.ic_console_warning);
-                        }
-                    });
-                    holder.textMessage.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.textMessage.setTextColor(context.getResources().getColor(R.color.consoleWarning));
-                        }
-                    });
-                }
-            });
-        }
+//        if (model.getType() == "error") {
+//            ((Activity)context).runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    holder.linMessage.setBackgroundColor(context.getResources().getColor(R.color.consoleErrorBack));
+//                    holder.imageType.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            holder.imageType.setImageResource(R.drawable.ic_console_error);
+//                        }
+//                    });
+//                    holder.textMessage.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            holder.textMessage.setTextColor(context.getResources().getColor(R.color.consoleError));
+//                        }
+//                    });
+//                }
+//            });
+//        }
+//        if (model.getType() == "warning") {
+//            ((Activity)context).runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    holder.linMessage.setBackgroundColor(context.getResources().getColor(R.color.consoleWarningBack));
+//                    holder.imageType.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            holder.imageType.setImageResource(R.drawable.ic_console_warning);
+//                        }
+//                    });
+//                    holder.textMessage.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            holder.textMessage.setTextColor(context.getResources().getColor(R.color.consoleWarning));
+//                        }
+//                    });
+//                }
+//            });
+//        }
     }
 
     @Override
@@ -123,7 +129,9 @@ public class WebEIConsoleAdapter extends RecyclerView.Adapter<WebEIConsoleAdapte
         protected TextView textSourceID;
         protected LinearLayout linSourceID;
         protected TextView textLinNumber;
+        protected LinearLayout linLinNumber;
         protected ImageView imageType;
+        protected TextView textUP;
 
         public WebEIConsoleHolder(View item) {
             super(item);
@@ -133,6 +141,8 @@ public class WebEIConsoleAdapter extends RecyclerView.Adapter<WebEIConsoleAdapte
             linSourceID = item.findViewById(R.id.linSourceID);
             textLinNumber = item.findViewById(R.id.textLinNumber);
             imageType = item.findViewById(R.id.imageType);
+            linLinNumber = item.findViewById(R.id.linLinNumber);
+            textUP = item.findViewById(R.id.textUP);
         }
     }
 }

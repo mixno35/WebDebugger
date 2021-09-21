@@ -34,7 +34,7 @@
             android:gravity="center_vertical|left"/>
 
         <TextView
-            android:id="@+id/textLinNumber"
+            android:id="@+id/textUP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -42,6 +42,34 @@
             android:layout_marginLeft="7dp"
             android:textColor="@color/consoleLinNumber"
             android:textSize="14sp"
+            android:gravity="center_vertical|left"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linLinNumber"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp">
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:tint="@color/consoleLinNumber"
+            android:src="@drawable/ic_console_source_id"/>
+
+        <TextView
+            android:id="@+id/textLinNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textIsSelectable="true"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/consoleLinNumber"
+            android:textSize="14sp"
+            android:text="1"
             android:gravity="center_vertical|left"/>
 
     </LinearLayout>

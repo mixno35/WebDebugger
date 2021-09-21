@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,28 +17,35 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 import com.mixno.web_debugger.R;
 import com.mixno.web_debugger.SettingsActivity;
 import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.app.DataAnim;
 import com.mixno.web_debugger.model.BackHistoryModel;
+import com.mixno.web_debugger.web.BackHistory;
 import com.mixno.web_debugger.widget.WebEI;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
+import org.jsoup.select.NodeFilter;
+
 import static com.mixno.web_debugger.app.Data.PATH_HISTORY;
 
-public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.BackHistoryHolder> {
+public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.BackHistoryHolder> implements Filterable {
 
     private List<BackHistoryModel> list;
+    private List<BackHistoryModel> orig;
     private Context context;
     private WebEI web;
 
     public BackHistoryAdapter(List<BackHistoryModel> list, Context context, WebEI web) {
         this.list = list;
+        this.orig = list;
         this.context = context;
         this.web = web;
     }
@@ -122,8 +131,40 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
     }
 
     @Override
-    public int getItemCount() {
-        return list.size();
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                FilterResults filterResults = new FilterResults();
+
+                if (charSequence == null | charSequence.length() == 0) {
+                    filterResults.count = orig.size();
+                    filterResults.values = orig;
+                } else {
+                    String searchChr = charSequence.toString().toLowerCase();
+
+                    List<BackHistoryModel> resultData = new ArrayList<>();
+
+                    for (BackHistoryModel model1: orig) {
+                        if (model1.getUrl().toLowerCase().contains(searchChr)) {
+                            resultData.add(model1);
+                        }
+                    }
+                    filterResults.count = resultData.size();
+                    filterResults.values = resultData;
+                }
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                list = (List<BackHistoryModel>)filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+
+        return filter;
     }
 
     public static class BackHistoryHolder extends RecyclerView.ViewHolder {
@@ -135,6 +176,11 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
             textTitle = item.findViewById(R.id.textTitle);
             iconBitmap = item.findViewById(R.id.iconBitmap);
         }
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
     }
 
     private void alertMenu(final String name, final String url, final int position, final View view) {

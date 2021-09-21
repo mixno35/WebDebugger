@@ -2,8 +2,9 @@
     <string name="app_name">EI</string>
     <string name="app_name_full">Element Inspector</string>
 
-    <string name="hint_search">Введите URL или запрос</string>
+    <string name="hint_search">Введите адрес или запрос</string>
     <string name="hint_write_js">Введите JavaScript</string>
+    <string name="hint_write_html">Введите html</string>
     <string name="hint_find_to_page">Введите текст</string>
     <string name="hint_cookie_name">Название</string>
     <string name="hint_cookie_value">Значение</string>
@@ -89,6 +90,13 @@
     <string name="action_javascript_store_online">Онлайн</string>
     <string name="action_javascript_store_installed">Установленные</string>
     <string name="action_support_project">Поддержать проект</string>
+    <string name="action_load_html">Загрузить HTML</string>
+    <string name="action_load_html_replace">Заменить</string>
+    <string name="action_load_html_append">Добавить</string>
+    <string name="action_unlock_hide_functions">Разблокировать скрытые функции</string>
+    <string name="action_unlock_hide_function_0">Заблокировано</string>
+    <string name="action_unlock_hide_function_1">Раблокировано</string>
+    <string name="action_search">Поиск</string>
 
     <string name="action_menu_open">Открыть</string>
     <string name="action_menu_copy">Копировать</string>
@@ -149,6 +157,8 @@
     <string name="message_support_project">Поддержать проект можно звонкой монетой или просто теплыми словами. Любая ваша поддержка будет большой мотивацией продолжать этот проект.</string>
     <string name="message_no_data_certificate">Нет данных о сертификате</string>
     <string name="message_whois_error">Если появилась ошибка при отображении \"Whois\", попробуйте изменить хост запрашиваемого сайта. Например: с ***.domain.com на domain.com (Оставьте лишь чистый домен).</string>
+    <string name="message_select_format_cache_webview">Выберите формат загрузки кэшированных страниц.</string>
+    <string name="message_select_format_load_html">Выберите формат загрузки HTML.</string>
 
     <string name="search_engine_google">Google</string>
     <string name="search_engine_yandex">Яндекс</string>
@@ -207,12 +217,16 @@
     <string name="title_clear_data_history">Очистить историю</string>
     <string name="title_search_engine">Поисковая система</string>
     <string name="title_search_engine_other">Своя поисковая система</string>
+    <string name="title_cache_webview">Кэширование страниц</string>
+    <string name="title_about_app_version">Версия</string>
+    <string name="title_about_app_version_code">Код</string>
+    <string name="title_about_app_launched">Запусков</string>
 
     <string name="ssl_error">Ошибка SSL Сертификата.</string>
     <string name="ssl_error_untrusted">Подозрительный центр сертификации.</string>
     <string name="ssl_error_expired">Срок действия сертификата истёк.</string>
     <string name="ssl_error_idmismatch">Несоответствие имени хоста сертификата.</string>
-    <string name="ssl_error_notyetvalid">Сертификат еще не действителен.</string>
+    <string name="ssl_error_notyetvalid">Сертификат не действителен.</string>
 
     <string name="toast_allow_permission_false">Пожалйста, откройте доступ к разрешению %1$s</string>
     <string name="toast_no_addons">Нет дополнений</string>
@@ -243,6 +257,11 @@
     <string name="feedback_email_invalid">Почта не действительна</string>
     <string name="feedback_error_send">Нет установленных почтовых клиентов</string>
     <string name="feedback_choose_email_client">Выберите почтовый клиент</string>
+
+    <string name="cache_mode_default">По умолчанию</string>
+    <string name="cache_mode_no_cache">Без кэша</string>
+    <string name="cache_mode_cache_only">Только кэш</string>
+    <string name="cache_mode_cache_else_network">Если нет подключения к сети</string>
 
     <string name="tooltip_console_clear">Очистить консоль</string>
     <string name="tooltip_console_refresh">Обновить список</string>
@@ -289,6 +308,7 @@
     <string name="preference_save_history">Сохранить историю</string>
     <string name="preference_fake_reload_page_web">Фейковое обновление страницы</string>
     <string name="preference_clear_data">Очистить данные</string>
+    <string name="preference_cache_webview">Кэширование страниц</string>
 
     <string name="preference_summary_save_session">Сохраняет последнюю открытую страницу</string>
     <string name="preference_summary_theme_color">Адаптировать цвета приложения, под цвет сайт</string>

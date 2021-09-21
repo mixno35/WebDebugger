@@ -1,10 +1,13 @@
 package com.mixno.web_debugger;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,12 +29,15 @@ public class AboutAppActivity extends AppCompatActivity {
 
     // private Toolbar toolbar;
     private ImageView imageIcon;
-    private TextView textAppName, textAppVersion;
-    private Button buttonSourceCode, buttonSupportProject;
+    private TextView textAppName, textAppVersion, textAppVersionCode, textAppLaunched;
+    private Button buttonSourceCode, buttonSupportProject, buttonUnlockHideFunctions;
 
     private ImageView actionVK, actionTELEGRAM, actionINSTAGRAM, actionYOUTUBE;
 
     private PackageInfo pInfo;
+
+    private SharedPreferences shared;
+    private SharedPreferences rateSPNum;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,12 +50,18 @@ public class AboutAppActivity extends AppCompatActivity {
         textAppName = findViewById(R.id.textAppName);
         buttonSourceCode = findViewById(R.id.buttonSourceCode);
         buttonSupportProject = findViewById(R.id.buttonSupportProject);
+        buttonUnlockHideFunctions = findViewById(R.id.buttonUnlockHideFunctions);
         textAppVersion = findViewById(R.id.textAppVersion);
+        textAppVersionCode= findViewById(R.id.textAppVersionCode);
+        textAppLaunched = findViewById(R.id.textAppLaunched);
 
         actionVK = findViewById(R.id.actionVK);
         actionTELEGRAM = findViewById(R.id.actionTELEGRAM);
         actionINSTAGRAM = findViewById(R.id.actionINSTAGRAM);
         actionYOUTUBE = findViewById(R.id.actionYOUTUBE);
+
+        shared = PreferenceManager.getDefaultSharedPreferences(this);
+        rateSPNum = getSharedPreferences("rateNum", Context.MODE_PRIVATE);
 
         try {
             pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -118,6 +130,28 @@ public class AboutAppActivity extends AppCompatActivity {
             }
         });
 
+        buttonUnlockHideFunctions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shared.edit().putBoolean("keyAboutAppHideUnlocked", true).apply();
+                buttonUnlockHideFunctions.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        buttonUnlockHideFunctions.setVisibility(View.GONE);
+                    }
+                });
+            }
+        });
+
+        if (shared.getBoolean("keyAboutAppHideUnlocked", false)) {
+            buttonUnlockHideFunctions.post(new Runnable() {
+                @Override
+                public void run() {
+                    buttonUnlockHideFunctions.setVisibility(View.GONE);
+                }
+            });
+        }
+
         if (textAppName != null) {
             textAppName.post(new Runnable() {
                 @Override
@@ -130,7 +164,23 @@ public class AboutAppActivity extends AppCompatActivity {
             textAppVersion.post(new Runnable() {
                 @Override
                 public void run() {
-                    textAppVersion.setText(pInfo.versionName + " (" + pInfo.versionCode + ")");
+                    textAppVersion.setText(pInfo.versionName);
+                }
+            });
+        }
+        if (textAppVersionCode != null) {
+            textAppVersionCode.post(new Runnable() {
+                @Override
+                public void run() {
+                    textAppVersionCode.setText(String.valueOf(pInfo.versionCode));
+                }
+            });
+        }
+        if (textAppLaunched != null) {
+            textAppLaunched.post(new Runnable() {
+                @Override
+                public void run() {
+                    textAppLaunched.setText(String.valueOf(rateSPNum.getInt("rateNum", 0)));
                 }
             });
         }
