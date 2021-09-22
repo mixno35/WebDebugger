@@ -21,14 +21,13 @@ import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.dialog.DownloadFileDialog;
 import com.squareup.picasso.Picasso;
 
-public class ImageMenu {
+public class AnchorMenu {
 
     public static void alert(final Context context, final WebView.HitTestResult hit) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE );
-        final View view = inflater.inflate(R.layout.alert_long_web_image, null);
+        final View view = inflater.inflate(R.layout.alert_long_web_anchor, null);
 
         final TextView textURL = view.findViewById(R.id.textID);
-        final ImageView imagePREVIEW = view.findViewById(R.id.imagePREVIEW);
 
         textURL.post(new Runnable() {
             @Override
@@ -44,19 +43,6 @@ public class ImageMenu {
                 return true;
             }
         });
-
-        Picasso.with(context)
-                .load(hit.getExtra())
-                .placeholder(R.mipmap.ic_launcher)
-                .error(R.mipmap.ic_launcher)
-                .into(imagePREVIEW);
-
-//        imagePREVIEW.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                imagePREVIEW.setVisibility(View.GONE);
-//            }
-//        });
 
         textURL.post(new Runnable() {
             @Override
@@ -80,7 +66,7 @@ public class ImageMenu {
 //        builder.setTitle(hit.getExtra());
         builder.setView(view);
 
-        String[] menu = {context.getString(R.string.action_menu_open), context.getString(R.string.action_download), context.getString(R.string.action_menu_copy_url), context.getString(R.string.action_menu_share)};
+        String[] menu = {context.getString(R.string.action_menu_open), context.getString(R.string.action_menu_copy_url), context.getString(R.string.action_menu_share)};
         builder.setItems(menu, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -88,13 +74,10 @@ public class ImageMenu {
                     case 0: // Open
                         MainActivity.mWeb.loadUrl(hit.getExtra());
                         break;
-                    case 1: // Download
-                        downloadImage(context, hit.getExtra());
-                        break;
-                    case 2: // Copy URL
+                    case 1: // Copy URL
                         Data.clipboard(context, hit.getExtra(), true);
                         break;
-                    case 3: // Share
+                    case 2: // Share
                         Data.shareText(context, hit.getExtra());
                         break;
                 }
@@ -103,9 +86,5 @@ public class ImageMenu {
 
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
-
-    private static void downloadImage(final Context context, final String url) {
-        new DownloadFileDialog(context, url, null, 0);
     }
 }

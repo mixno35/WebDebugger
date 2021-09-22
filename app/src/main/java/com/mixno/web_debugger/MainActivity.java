@@ -73,10 +73,12 @@ import com.mixno.web_debugger.dialog.AddonsDialog;
 import com.mixno.web_debugger.dialog.CodeDialog;
 import com.mixno.web_debugger.dialog.CodeStyleDialog;
 import com.mixno.web_debugger.dialog.CookieManagerDialog;
+import com.mixno.web_debugger.dialog.DownloadFileDialog;
 import com.mixno.web_debugger.dialog.LoadHTMLDialog;
 import com.mixno.web_debugger.dialog.RateAppDialog;
 import com.mixno.web_debugger.dialog.UserAgentDialog;
 import com.mixno.web_debugger.dialog.WelcomeDialog;
+import com.mixno.web_debugger.menu.AnchorMenu;
 import com.mixno.web_debugger.menu.ImageMenu;
 import com.mixno.web_debugger.model.BackHistoryModel;
 import com.mixno.web_debugger.model.ConsoleModel;
@@ -572,49 +574,7 @@ public class MainActivity extends AppCompatActivity {
             mWeb.setDownloadListener(new DownloadListener() {
                 @Override
                 public void onDownloadStart(final String url, final String userAgent, final String contentDisposition, final String mimetype, final long contentLength) {
-                    final AlertDialog.Builder builderD = new AlertDialog.Builder(MainActivity.this);
-
-                    Uri source = Uri.parse(url);
-                    DownloadManager.Request request = new DownloadManager.Request(source);
-
-                    final String filename_one = Data.getFileName(url, contentDisposition, mimetype);
-
-                    // final String filename = URLUtil.guessFileName(url, contentDisposition, mimetype);
-                    final String cookies = CookieManager.getInstance().getCookie(url);
-
-                    builderD.setTitle(getString(R.string.title_download));
-                    builderD.setMessage(String.format(getString(R.string.message_download), filename_one, filename_one, Data.longFileSize(contentLength)));
-                    builderD.setPositiveButton(getString(R.string.action_download), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            try {
-                                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
-
-                                request.setMimeType(mimetype);
-
-                                request.addRequestHeader("cookie", cookies);
-                                request.addRequestHeader("User-Agent", userAgent);
-                                request.setDescription(getString(R.string.download_description));
-                                request.setTitle(filename_one);
-                                request.allowScanningByMediaScanner();
-                                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
-                                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, filename_one);
-
-                                DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                                dm.enqueue(request);
-                            } catch (Exception e) {
-                                Toast.makeText(MainActivity.this, "Unknown error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                    builderD.setNegativeButton(getString(R.string.action_cancel), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                    final AlertDialog alertD = builderD.create();
-                    alertD.show();
+                    new DownloadFileDialog(MainActivity.this, url, contentDisposition, contentLength);
                 }
             });
         }
@@ -852,6 +812,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (result.getType() == WebView.HitTestResult.IMAGE_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
             ImageMenu.alert(this, result);
+        } if (result.getType() == WebView.HitTestResult.ANCHOR_TYPE || result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
+            AnchorMenu.alert(this, result);
         }
     }
 
@@ -1259,7 +1221,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         // backHistoryList.add(new BackHistoryModel(mWeb.getTitle(), mWeb.getUrl(), mWeb.getFavicon(), String.valueOf(backHistoryList.size() + 1)));
                         if (shared.getBoolean("keySaveHistory", true) == true) {
-                            HistoryManager.addHistory(MainActivity.this, mWeb.getUrl());
+                            HistoryManager.addHistory(MainActivity.this, mWeb.getUrl(), mWeb.getTitle());
                         }
                         }
                 }, 2000);

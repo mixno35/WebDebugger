@@ -12,6 +12,8 @@
     <string name="hint_other_search_engine_home">Home page (https://domain.com/search)</string>
     <string name="hint_other_search_engine_search">Search page (https://domain.com/search?s=%20)</string>
     <string name="hint_enter_domain_whois">Enter domain or IP (domain.com / 127.0.0.1)</string>
+    <string name="hint_enter_useragent">Enter a other UserAgent</string>
+    <string name="hint_enter_name_file">Enter name file (filename.txt)</string>
 
     <string name="hint_error_search_engine_other_empty">This field cannot be empty!</string>
     <string name="hint_error_search_engine_other_search_20">This field must contain the value \"%20\"!</string>
@@ -97,6 +99,7 @@
     <string name="action_unlock_hide_function_0">Locked</string>
     <string name="action_unlock_hide_function_1">Unlocked</string>
     <string name="action_search">Search</string>
+    <string name="action_useragent_new">Add other UserAgent</string>
 
     <string name="action_menu_open">Open</string>
     <string name="action_menu_copy">Copy</string>
@@ -107,6 +110,9 @@
     <string name="action_menu_share">Share</string>
     <string name="action_menu_run">Run</string>
     <string name="action_menu_edit">Edit</string>
+
+    <string name="param_file_size">File size: %1$s</string>
+    <string name="param_mime_type_file">MimeType file: %1$s</string>
 
     <string name="ssl_check_warning_title">Not secure connection</string>
     <string name="ssl_check_ok_title">The connection is secure</string>
@@ -221,6 +227,7 @@
     <string name="title_about_app_version">Version</string>
     <string name="title_about_app_version_code">Code</string>
     <string name="title_about_app_launched">Launched</string>
+    <string name="title_useragent_new">Other</string>
 
     <string name="ssl_error">SSl Certificate error.</string>
     <string name="ssl_error_untrusted">The certificate authority is not trusted.</string>

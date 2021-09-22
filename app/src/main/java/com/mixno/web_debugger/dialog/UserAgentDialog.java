@@ -2,9 +2,11 @@ package com.mixno.web_debugger.dialog;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -27,14 +29,17 @@ public class UserAgentDialog {
     public static BottomSheetDialog dialog;
 
     private ImageView ivClose;
+    private Button buttonCreate;
 
     private RecyclerView listUA;
-    private RecyclerView.Adapter listAdapter;
+    public static RecyclerView.Adapter listAdapter;
     private RecyclerView.LayoutManager listLayoutManager;
 
     public static List<UserAgentModel> list = new ArrayList<>();
 
-    int drDevice = R.drawable.ic_smartphone_black_24dp;
+    private SharedPreferences otherUserAgent;
+
+    public static int drDevice = R.drawable.ic_smartphone_black_24dp;
 
     public UserAgentDialog(final Context context, final WebEI viewWeb) {
         dialog = new BottomSheetDialog(context);
@@ -43,12 +48,22 @@ public class UserAgentDialog {
         dialog.setCancelable(false);
         listUA = inflate.findViewById(R.id.recyclerView);
         ivClose = inflate.findViewById(R.id.ivClose);
+        buttonCreate = inflate.findViewById(R.id.buttonCreate);
+
+        otherUserAgent = context.getSharedPreferences("kOtherUserAgent", Context.MODE_PRIVATE);
 
         if (Data.isTablet(context)) {
             drDevice = R.drawable.ic_tablet_android_black_24dp;
         } else {
             drDevice = R.drawable.ic_phone_android_black_24dp;
         }
+
+        buttonCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new UserAgentNewDialog(context);
+            }
+        });
 
         if (dialog != null) {
             ivClose.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +123,10 @@ public class UserAgentDialog {
                 list.add(new UserAgentModel(R.drawable.ic_phone_android_black_24dp, context.getString(R.string.user_agent_uc_android_mobile), UserAgent.UC_ANDROID_MOBILE, false));
                 list.add(new UserAgentModel(R.drawable.ic_phone_iphone_black_24dp, context.getString(R.string.user_agent_uc_ios), UserAgent.UC_IOS, false));
                 list.add(new UserAgentModel(R.drawable.ic_smartphone_black_24dp, context.getString(R.string.user_agent_uc_windows_phone), UserAgent.UC_WINDOWS_PHONE, false));
+
+                if (otherUserAgent.getString("kOtherUserAgent", "").length() > 10) {
+                    list.add(new UserAgentModel(drDevice, context.getString(R.string.title_useragent_new), otherUserAgent.getString("kOtherUserAgent", ""), false));
+                }
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

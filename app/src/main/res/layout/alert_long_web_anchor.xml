@@ -17,14 +17,6 @@
         android:paddingBottom="25dp"
         android:paddingTop="25dp">
 
-        <ImageView
-            android:id="@+id/imagePREVIEW"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_image_placeholder"
-            android:scaleType="centerInside"
-            android:layout_marginRight="15dp"/>
-
         <TextView
             android:id="@+id/textID"
             android:layout_width="match_parent"

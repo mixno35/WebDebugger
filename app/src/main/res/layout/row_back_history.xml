@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="67dp"
         android:orientation="horizontal"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
@@ -22,17 +22,36 @@
             android:layout_height="24dp"
             android:src="@drawable/ic_public_placeholder"/>
 
-        <TextView
-            android:id="@+id/textTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="Title"
-            android:textStyle="normal"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:layout_marginLeft="12dp"
-            android:textColor="@color/title_remove"/>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Title"
+                android:textStyle="normal"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/title_remove"/>
+
+            <TextView
+                android:id="@+id/textUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="http://domain.com"
+                android:textStyle="normal"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/message_remove"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

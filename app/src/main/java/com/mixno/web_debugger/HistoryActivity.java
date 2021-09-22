@@ -33,6 +33,8 @@ import com.mixno.web_debugger.app.Data;
 import com.mixno.web_debugger.model.BackHistoryModel;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONObject;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -108,7 +110,13 @@ public class HistoryActivity extends AppCompatActivity {
 
             for (int i =0; i < files.length; i++) {
                 if (files[i].getAbsolutePath().endsWith(".eih")) {
-                    historyList.add(new BackHistoryModel(files[i].getName(), Data.read(new File(files[i].getAbsolutePath())), files[i].lastModified()));
+                    String json = Data.read(new File(files[i].getAbsolutePath()));
+                    if (Data.isJSONValid(json)) {
+                        JSONObject obj = new JSONObject(json);
+                        historyList.add(new BackHistoryModel(files[i].getName(), obj.getString("url"), obj.getString("title"), files[i].lastModified()));
+                    } else {
+                        historyList.add(new BackHistoryModel(files[i].getName(), json, "", files[i].lastModified()));
+                    }
                 }
             }
 

@@ -12,6 +12,8 @@
     <string name="hint_other_search_engine_home">Главная страница (https://domain.com/search)</string>
     <string name="hint_other_search_engine_search">Страница поиска (https://domain.com/search?s=%20)</string>
     <string name="hint_enter_domain_whois">Введите домен или IP (domain.com / 127.0.0.1)</string>
+    <string name="hint_enter_useragent">Введите свой UserAgent</string>
+    <string name="hint_enter_name_file">Название файла</string>
 
     <string name="hint_error_search_engine_other_empty">Это поле не может быть пустым!</string>
     <string name="hint_error_search_engine_other_search_20">Это поле должно содержать значение \"%20\"!</string>
@@ -97,6 +99,7 @@
     <string name="action_unlock_hide_function_0">Заблокировано</string>
     <string name="action_unlock_hide_function_1">Раблокировано</string>
     <string name="action_search">Поиск</string>
+    <string name="action_useragent_new">Добавить свой UserAgent</string>
 
     <string name="action_menu_open">Открыть</string>
     <string name="action_menu_copy">Копировать</string>
@@ -107,6 +110,9 @@
     <string name="action_menu_share">Поделиться</string>
     <string name="action_menu_run">Запустить</string>
     <string name="action_menu_edit">Изменить</string>
+
+    <string name="param_file_size">Размер файла: %1$s</string>
+    <string name="param_mime_type_file">Тип файла: %1$s</string>
 
     <string name="ssl_check_warning_title">Нет надежного соединени с сайтом</string>
     <string name="ssl_check_ok_title">Соединение защищено</string>
@@ -221,6 +227,7 @@
     <string name="title_about_app_version">Версия</string>
     <string name="title_about_app_version_code">Код</string>
     <string name="title_about_app_launched">Запусков</string>
+    <string name="title_useragent_new">Свой</string>
 
     <string name="ssl_error">Ошибка SSL Сертификата.</string>
     <string name="ssl_error_untrusted">Подозрительный центр сертификации.</string>

@@ -62,6 +62,7 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
         final BackHistoryModel model = list.get(position);
 
         final String url = model.getUrl();
+        final String title = model.getTitle();
         final String name = model.getName();
         String host = "";
         try {
@@ -88,8 +89,20 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
         holder.textTitle.post(new Runnable() {
             @Override
             public void run() {
-                if (!model.getUrl().equals("")) {
+                if (!model.getTitle().equals("")) {
+                    holder.textTitle.setText(title);
+                    holder.textUrl.setVisibility(View.VISIBLE);
+                } else {
                     holder.textTitle.setText(url);
+                    holder.textUrl.setVisibility(View.GONE);
+                }
+            }
+        });
+        holder.textUrl.post(new Runnable() {
+            @Override
+            public void run() {
+                if (!model.getUrl().equals("")) {
+                    holder.textUrl.setText(url);
                 }
             }
         });
@@ -168,12 +181,13 @@ public class BackHistoryAdapter extends RecyclerView.Adapter<BackHistoryAdapter.
     }
 
     public static class BackHistoryHolder extends RecyclerView.ViewHolder {
-        protected TextView textTitle;
+        protected TextView textTitle, textUrl;
         protected ImageView iconBitmap;
 
         public BackHistoryHolder(View item) {
             super(item);
             textTitle = item.findViewById(R.id.textTitle);
+            textUrl = item.findViewById(R.id.textUrl);
             iconBitmap = item.findViewById(R.id.iconBitmap);
         }
     }
